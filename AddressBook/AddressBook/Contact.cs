@@ -8,32 +8,10 @@ namespace AddressBook
 {
     class Contact
     {
-        private string _name;
-        private string _location;
-        private string _phone_number;
-
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
-        }
-
-        public string Phone
-        {
-            get
-            {
-                return _phone_number;
-            }
-            set
-            {
-                _phone_number = value;
-            }
-        }
+      public string name { get; private set; }
+      public string phone { get; private set; }
+      public string emailAddress { get; private set; }
+      public string streetAddress { get; private set; }
+      public DateTime birthday { get; private set; }
     }
 }
