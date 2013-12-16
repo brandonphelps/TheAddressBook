@@ -32,22 +32,19 @@
       this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.personToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.Books_ListBox = new System.Windows.Forms.ListBox();
       this.AddBook_Button = new System.Windows.Forms.Button();
       this.Contacts_ListBox = new System.Windows.Forms.ListBox();
       this.ContactInfo_Panel = new System.Windows.Forms.Panel();
       this.AddContact_Button = new System.Windows.Forms.Button();
+      this.Edit_Button = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // menuStrip1
       // 
       this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.viewToolStripMenuItem});
+            this.fileToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
       this.menuStrip1.Size = new System.Drawing.Size(613, 24);
@@ -76,18 +73,6 @@
       this.personToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.personToolStripMenuItem.Text = "Person";
       // 
-      // editToolStripMenuItem
-      // 
-      this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-      this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-      this.editToolStripMenuItem.Text = "Edit";
-      // 
-      // viewToolStripMenuItem
-      // 
-      this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-      this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-      this.viewToolStripMenuItem.Text = "View";
-      // 
       // Books_ListBox
       // 
       this.Books_ListBox.FormattingEnabled = true;
@@ -104,11 +89,12 @@
       this.AddBook_Button.TabIndex = 2;
       this.AddBook_Button.Text = "Add";
       this.AddBook_Button.UseVisualStyleBackColor = true;
+      this.AddBook_Button.Click += new System.EventHandler(this.AddBook_Button_Click);
       // 
       // Contacts_ListBox
       // 
       this.Contacts_ListBox.FormattingEnabled = true;
-      this.Contacts_ListBox.Location = new System.Drawing.Point(138, 26);
+      this.Contacts_ListBox.Location = new System.Drawing.Point(138, 27);
       this.Contacts_ListBox.Name = "Contacts_ListBox";
       this.Contacts_ListBox.Size = new System.Drawing.Size(120, 381);
       this.Contacts_ListBox.TabIndex = 3;
@@ -116,9 +102,10 @@
       // ContactInfo_Panel
       // 
       this.ContactInfo_Panel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-      this.ContactInfo_Panel.Location = new System.Drawing.Point(276, 26);
+      this.ContactInfo_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.ContactInfo_Panel.Location = new System.Drawing.Point(264, 27);
       this.ContactInfo_Panel.Name = "ContactInfo_Panel";
-      this.ContactInfo_Panel.Size = new System.Drawing.Size(325, 381);
+      this.ContactInfo_Panel.Size = new System.Drawing.Size(337, 381);
       this.ContactInfo_Panel.TabIndex = 4;
       this.ContactInfo_Panel.Visible = false;
       // 
@@ -130,12 +117,24 @@
       this.AddContact_Button.TabIndex = 5;
       this.AddContact_Button.Text = "Add";
       this.AddContact_Button.UseVisualStyleBackColor = true;
+      this.AddContact_Button.Click += new System.EventHandler(this.AddContact_Button_Click);
+      // 
+      // Edit_Button
+      // 
+      this.Edit_Button.Location = new System.Drawing.Point(264, 409);
+      this.Edit_Button.Name = "Edit_Button";
+      this.Edit_Button.Size = new System.Drawing.Size(53, 23);
+      this.Edit_Button.TabIndex = 6;
+      this.Edit_Button.Text = "Edit";
+      this.Edit_Button.UseVisualStyleBackColor = true;
+      this.Edit_Button.Click += new System.EventHandler(this.Edit_Button_Click);
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(613, 444);
+      this.Controls.Add(this.Edit_Button);
       this.Controls.Add(this.AddContact_Button);
       this.Controls.Add(this.ContactInfo_Panel);
       this.Controls.Add(this.Contacts_ListBox);
@@ -159,13 +158,12 @@
     private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem personToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
     private System.Windows.Forms.ListBox Books_ListBox;
     private System.Windows.Forms.Button AddBook_Button;
     private System.Windows.Forms.ListBox Contacts_ListBox;
     private System.Windows.Forms.Panel ContactInfo_Panel;
     private System.Windows.Forms.Button AddContact_Button;
+    private System.Windows.Forms.Button Edit_Button;
   }
 }
 
