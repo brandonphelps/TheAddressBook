@@ -25,6 +25,20 @@ namespace AddressBook
     }
 
     public void displayBook()
+    { 
+      
+    }
+    private void AddBook_Button_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void AddContact_Button_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void Edit_Button_Click(object sender, EventArgs e)
     {
 
     }
