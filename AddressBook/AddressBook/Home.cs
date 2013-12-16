@@ -10,14 +10,21 @@ using System.Windows.Forms;
 
 namespace AddressBook
 {
-  public partial class Form1 : Form
+  public partial class Home : Form
   {
-    public Form1()
+    private List<Book> books = new List<Book>();    
+
+    public Home() 
     {
       InitializeComponent();
     }
 
     private void Form1_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    public void displayBook()
     {
 
     }
