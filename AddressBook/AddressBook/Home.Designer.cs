@@ -64,13 +64,13 @@
       this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.personToolStripMenuItem});
       this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-      this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.newToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
       this.newToolStripMenuItem.Text = "New";
       // 
       // personToolStripMenuItem
       // 
       this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-      this.personToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.personToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
       this.personToolStripMenuItem.Text = "Person";
       // 
       // Books_ListBox
