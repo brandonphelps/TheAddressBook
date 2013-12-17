@@ -129,7 +129,7 @@
       this.Edit_Button.UseVisualStyleBackColor = true;
       this.Edit_Button.Click += new System.EventHandler(this.Edit_Button_Click);
       // 
-      // Form1
+      // Home
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,7 +142,7 @@
       this.Controls.Add(this.Books_ListBox);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
-      this.Name = "Form1";
+      this.Name = "Home";
       this.Text = "Address Book";
       this.Load += new System.EventHandler(this.Form1_Load);
       this.menuStrip1.ResumeLayout(false);

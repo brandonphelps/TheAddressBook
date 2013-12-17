@@ -39,29 +39,39 @@ namespace AddressBook
       
     public void createTable(string tableName, string tableParams)
     {
+      SQLiteCommand command = null;
       try
       {
         sql_query = "create table " + tableName + " " + tableParams;
-        SQLiteCommand command = new SQLiteCommand(sql_query, m_dbConnection);
+        command = new SQLiteCommand(sql_query, m_dbConnection);
         command.ExecuteNonQuery();
       }
       catch(Exception e)
       {
+        if(command != null)
+        {
+          Console.WriteLine("CreateTable: " + command.CommandText);
+        }
         Console.WriteLine("Table " + tableName + " already exists bub");
       }
     }
 
     public void insertIntoTable(string table, string tableForm, string values)
     {
+      SQLiteCommand command = null;
       try
       {
         sql_query = "insert into " + table + " " + tableForm + " values " + values;
-        SQLiteCommand command = new SQLiteCommand(sql_query, m_dbConnection);
+        command = new SQLiteCommand(sql_query, m_dbConnection);
         command.ExecuteNonQuery();
       }
       catch(Exception e)
       {
         Console.WriteLine("Something something insert went wrong");
+        if(command != null)
+        {
+          Console.WriteLine("Insert Into Table: " + command.CommandText);
+        }
       }
     }
 

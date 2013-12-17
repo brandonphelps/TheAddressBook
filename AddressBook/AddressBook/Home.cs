@@ -23,18 +23,19 @@ namespace AddressBook
       InitializeComponent();
 
       DManager = new DataManager("MyDatabase.sqlite");
-      DManager.createTable("highscores", "(name varchar(20), score int)");
-      string sql;
+      DManager.createTable("contacts", "(name varchar(20))");
 
-      SQLiteConnection m_dbConn = DManager.getSQLConn();
+      DManager.insertIntoTable("contacts", "(name)", "('brad')");
+      DManager.insertIntoTable("contacts", "(name)", "('sean')");
+      DManager.insertIntoTable("contacts", "(name)", "('bradley')");
 
-      sql = "select * from highscores order by score desc";
-      SQLiteCommand ttCommand = new SQLiteCommand(sql, m_dbConn);
-      Console.WriteLine("reading highscore table");
+      string sql = "select * from contacts";
+      SQLiteCommand ttCommand = new SQLiteCommand(sql, DManager.getSQLConn());
+      Console.WriteLine("reading contacts table");
       SQLiteDataReader readert = ttCommand.ExecuteReader();
       while (readert.Read())
       {
-        Console.WriteLine("Name: " + readert["name"] + "\tScore: " + readert["score"]);
+        Console.WriteLine("Name: " + readert["name"]);
       }
     }
 
