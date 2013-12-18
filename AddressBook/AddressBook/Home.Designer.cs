@@ -36,21 +36,21 @@
       this.AddBook_Button = new System.Windows.Forms.Button();
       this.Contacts_ListBox = new System.Windows.Forms.ListBox();
       this.ContactInfo_Panel = new System.Windows.Forms.Panel();
+      this.ContactPicture_pictureBox = new System.Windows.Forms.PictureBox();
+      this.BDay_Label = new System.Windows.Forms.Label();
+      this.Email_Label = new System.Windows.Forms.Label();
+      this.Phone_Label = new System.Windows.Forms.Label();
+      this.Address_Label = new System.Windows.Forms.Label();
+      this.ContactName_label = new System.Windows.Forms.Label();
+      this.BDay_textBox = new System.Windows.Forms.TextBox();
+      this.LastName_textBox = new System.Windows.Forms.TextBox();
+      this.MidName_textBox = new System.Windows.Forms.TextBox();
+      this.Address_textBox = new System.Windows.Forms.TextBox();
+      this.Phone_textBox = new System.Windows.Forms.TextBox();
+      this.Email_textBox = new System.Windows.Forms.TextBox();
+      this.FirstName_textBox = new System.Windows.Forms.TextBox();
       this.AddContact_Button = new System.Windows.Forms.Button();
       this.Edit_Button = new System.Windows.Forms.Button();
-      this.FirstName_textBox = new System.Windows.Forms.TextBox();
-      this.Email_textBox = new System.Windows.Forms.TextBox();
-      this.Phone_textBox = new System.Windows.Forms.TextBox();
-      this.Address_textBox = new System.Windows.Forms.TextBox();
-      this.MidName_textBox = new System.Windows.Forms.TextBox();
-      this.LastName_textBox = new System.Windows.Forms.TextBox();
-      this.BDay_textBox = new System.Windows.Forms.TextBox();
-      this.ContactName_label = new System.Windows.Forms.Label();
-      this.Address_Label = new System.Windows.Forms.Label();
-      this.Phone_Label = new System.Windows.Forms.Label();
-      this.Email_Label = new System.Windows.Forms.Label();
-      this.BDay_Label = new System.Windows.Forms.Label();
-      this.ContactPicture_pictureBox = new System.Windows.Forms.PictureBox();
       this.menuStrip1.SuspendLayout();
       this.ContactInfo_Panel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ContactPicture_pictureBox)).BeginInit();
@@ -90,10 +90,12 @@
       // 
       // Books_ListBox
       // 
+      this.Books_ListBox.BackColor = System.Drawing.SystemColors.ControlDark;
+      this.Books_ListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Books_ListBox.FormattingEnabled = true;
       this.Books_ListBox.Location = new System.Drawing.Point(12, 27);
       this.Books_ListBox.Name = "Books_ListBox";
-      this.Books_ListBox.Size = new System.Drawing.Size(120, 381);
+      this.Books_ListBox.Size = new System.Drawing.Size(120, 379);
       this.Books_ListBox.TabIndex = 1;
       // 
       // AddBook_Button
@@ -108,10 +110,12 @@
       // 
       // Contacts_ListBox
       // 
+      this.Contacts_ListBox.BackColor = System.Drawing.SystemColors.ControlDark;
+      this.Contacts_ListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Contacts_ListBox.FormattingEnabled = true;
       this.Contacts_ListBox.Location = new System.Drawing.Point(138, 27);
       this.Contacts_ListBox.Name = "Contacts_ListBox";
-      this.Contacts_ListBox.Size = new System.Drawing.Size(120, 381);
+      this.Contacts_ListBox.Size = new System.Drawing.Size(120, 379);
       this.Contacts_ListBox.TabIndex = 3;
       // 
       // ContactInfo_Panel
@@ -136,6 +140,113 @@
       this.ContactInfo_Panel.Size = new System.Drawing.Size(337, 381);
       this.ContactInfo_Panel.TabIndex = 4;
       // 
+      // ContactPicture_pictureBox
+      // 
+      this.ContactPicture_pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
+      this.ContactPicture_pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.ContactPicture_pictureBox.Location = new System.Drawing.Point(100, 17);
+      this.ContactPicture_pictureBox.Name = "ContactPicture_pictureBox";
+      this.ContactPicture_pictureBox.Size = new System.Drawing.Size(164, 135);
+      this.ContactPicture_pictureBox.TabIndex = 0;
+      this.ContactPicture_pictureBox.TabStop = false;
+      // 
+      // BDay_Label
+      // 
+      this.BDay_Label.AutoSize = true;
+      this.BDay_Label.Location = new System.Drawing.Point(14, 298);
+      this.BDay_Label.Name = "BDay_Label";
+      this.BDay_Label.Size = new System.Drawing.Size(48, 13);
+      this.BDay_Label.TabIndex = 11;
+      this.BDay_Label.Text = "Birthday:";
+      // 
+      // Email_Label
+      // 
+      this.Email_Label.AutoSize = true;
+      this.Email_Label.Location = new System.Drawing.Point(14, 269);
+      this.Email_Label.Name = "Email_Label";
+      this.Email_Label.Size = new System.Drawing.Size(35, 13);
+      this.Email_Label.TabIndex = 10;
+      this.Email_Label.Text = "Email:";
+      // 
+      // Phone_Label
+      // 
+      this.Phone_Label.AutoSize = true;
+      this.Phone_Label.Location = new System.Drawing.Point(14, 243);
+      this.Phone_Label.Name = "Phone_Label";
+      this.Phone_Label.Size = new System.Drawing.Size(41, 13);
+      this.Phone_Label.TabIndex = 9;
+      this.Phone_Label.Text = "Phone:";
+      // 
+      // Address_Label
+      // 
+      this.Address_Label.AutoSize = true;
+      this.Address_Label.Location = new System.Drawing.Point(14, 217);
+      this.Address_Label.Name = "Address_Label";
+      this.Address_Label.Size = new System.Drawing.Size(48, 13);
+      this.Address_Label.TabIndex = 8;
+      this.Address_Label.Text = "Address:";
+      // 
+      // ContactName_label
+      // 
+      this.ContactName_label.AutoSize = true;
+      this.ContactName_label.Location = new System.Drawing.Point(14, 194);
+      this.ContactName_label.Name = "ContactName_label";
+      this.ContactName_label.Size = new System.Drawing.Size(38, 13);
+      this.ContactName_label.TabIndex = 7;
+      this.ContactName_label.Text = "Name:";
+      // 
+      // BDay_textBox
+      // 
+      this.BDay_textBox.Location = new System.Drawing.Point(100, 295);
+      this.BDay_textBox.Name = "BDay_textBox";
+      this.BDay_textBox.Size = new System.Drawing.Size(213, 20);
+      this.BDay_textBox.TabIndex = 6;
+      // 
+      // LastName_textBox
+      // 
+      this.LastName_textBox.Location = new System.Drawing.Point(246, 191);
+      this.LastName_textBox.Name = "LastName_textBox";
+      this.LastName_textBox.Size = new System.Drawing.Size(67, 20);
+      this.LastName_textBox.TabIndex = 2;
+      this.LastName_textBox.Text = "Last";
+      // 
+      // MidName_textBox
+      // 
+      this.MidName_textBox.Location = new System.Drawing.Point(173, 191);
+      this.MidName_textBox.Name = "MidName_textBox";
+      this.MidName_textBox.Size = new System.Drawing.Size(67, 20);
+      this.MidName_textBox.TabIndex = 1;
+      this.MidName_textBox.Text = "Middle";
+      // 
+      // Address_textBox
+      // 
+      this.Address_textBox.Location = new System.Drawing.Point(100, 217);
+      this.Address_textBox.Name = "Address_textBox";
+      this.Address_textBox.Size = new System.Drawing.Size(213, 20);
+      this.Address_textBox.TabIndex = 3;
+      // 
+      // Phone_textBox
+      // 
+      this.Phone_textBox.Location = new System.Drawing.Point(100, 243);
+      this.Phone_textBox.Name = "Phone_textBox";
+      this.Phone_textBox.Size = new System.Drawing.Size(213, 20);
+      this.Phone_textBox.TabIndex = 4;
+      // 
+      // Email_textBox
+      // 
+      this.Email_textBox.Location = new System.Drawing.Point(100, 269);
+      this.Email_textBox.Name = "Email_textBox";
+      this.Email_textBox.Size = new System.Drawing.Size(213, 20);
+      this.Email_textBox.TabIndex = 5;
+      // 
+      // FirstName_textBox
+      // 
+      this.FirstName_textBox.Location = new System.Drawing.Point(100, 191);
+      this.FirstName_textBox.Name = "FirstName_textBox";
+      this.FirstName_textBox.Size = new System.Drawing.Size(67, 20);
+      this.FirstName_textBox.TabIndex = 0;
+      this.FirstName_textBox.Text = "First";
+      // 
       // AddContact_Button
       // 
       this.AddContact_Button.Location = new System.Drawing.Point(138, 409);
@@ -155,113 +266,6 @@
       this.Edit_Button.Text = "Edit";
       this.Edit_Button.UseVisualStyleBackColor = true;
       this.Edit_Button.Click += new System.EventHandler(this.Edit_Button_Click);
-      // 
-      // FirstName_textBox
-      // 
-      this.FirstName_textBox.Location = new System.Drawing.Point(100, 191);
-      this.FirstName_textBox.Name = "FirstName_textBox";
-      this.FirstName_textBox.Size = new System.Drawing.Size(67, 20);
-      this.FirstName_textBox.TabIndex = 0;
-      this.FirstName_textBox.Text = "First";
-      // 
-      // Email_textBox
-      // 
-      this.Email_textBox.Location = new System.Drawing.Point(100, 269);
-      this.Email_textBox.Name = "Email_textBox";
-      this.Email_textBox.Size = new System.Drawing.Size(213, 20);
-      this.Email_textBox.TabIndex = 5;
-      // 
-      // Phone_textBox
-      // 
-      this.Phone_textBox.Location = new System.Drawing.Point(100, 243);
-      this.Phone_textBox.Name = "Phone_textBox";
-      this.Phone_textBox.Size = new System.Drawing.Size(213, 20);
-      this.Phone_textBox.TabIndex = 4;
-      // 
-      // Address_textBox
-      // 
-      this.Address_textBox.Location = new System.Drawing.Point(100, 217);
-      this.Address_textBox.Name = "Address_textBox";
-      this.Address_textBox.Size = new System.Drawing.Size(213, 20);
-      this.Address_textBox.TabIndex = 3;
-      // 
-      // MidName_textBox
-      // 
-      this.MidName_textBox.Location = new System.Drawing.Point(173, 191);
-      this.MidName_textBox.Name = "MidName_textBox";
-      this.MidName_textBox.Size = new System.Drawing.Size(67, 20);
-      this.MidName_textBox.TabIndex = 1;
-      this.MidName_textBox.Text = "Middle";
-      // 
-      // LastName_textBox
-      // 
-      this.LastName_textBox.Location = new System.Drawing.Point(246, 191);
-      this.LastName_textBox.Name = "LastName_textBox";
-      this.LastName_textBox.Size = new System.Drawing.Size(67, 20);
-      this.LastName_textBox.TabIndex = 2;
-      this.LastName_textBox.Text = "Last";
-      // 
-      // BDay_textBox
-      // 
-      this.BDay_textBox.Location = new System.Drawing.Point(100, 295);
-      this.BDay_textBox.Name = "BDay_textBox";
-      this.BDay_textBox.Size = new System.Drawing.Size(213, 20);
-      this.BDay_textBox.TabIndex = 6;
-      // 
-      // ContactName_label
-      // 
-      this.ContactName_label.AutoSize = true;
-      this.ContactName_label.Location = new System.Drawing.Point(14, 194);
-      this.ContactName_label.Name = "ContactName_label";
-      this.ContactName_label.Size = new System.Drawing.Size(38, 13);
-      this.ContactName_label.TabIndex = 7;
-      this.ContactName_label.Text = "Name:";
-      // 
-      // Address_Label
-      // 
-      this.Address_Label.AutoSize = true;
-      this.Address_Label.Location = new System.Drawing.Point(14, 217);
-      this.Address_Label.Name = "Address_Label";
-      this.Address_Label.Size = new System.Drawing.Size(48, 13);
-      this.Address_Label.TabIndex = 8;
-      this.Address_Label.Text = "Address:";
-      // 
-      // Phone_Label
-      // 
-      this.Phone_Label.AutoSize = true;
-      this.Phone_Label.Location = new System.Drawing.Point(14, 243);
-      this.Phone_Label.Name = "Phone_Label";
-      this.Phone_Label.Size = new System.Drawing.Size(41, 13);
-      this.Phone_Label.TabIndex = 9;
-      this.Phone_Label.Text = "Phone:";
-      // 
-      // Email_Label
-      // 
-      this.Email_Label.AutoSize = true;
-      this.Email_Label.Location = new System.Drawing.Point(14, 269);
-      this.Email_Label.Name = "Email_Label";
-      this.Email_Label.Size = new System.Drawing.Size(35, 13);
-      this.Email_Label.TabIndex = 10;
-      this.Email_Label.Text = "Email:";
-      // 
-      // BDay_Label
-      // 
-      this.BDay_Label.AutoSize = true;
-      this.BDay_Label.Location = new System.Drawing.Point(14, 298);
-      this.BDay_Label.Name = "BDay_Label";
-      this.BDay_Label.Size = new System.Drawing.Size(48, 13);
-      this.BDay_Label.TabIndex = 11;
-      this.BDay_Label.Text = "Birthday:";
-      // 
-      // ContactPicture_pictureBox
-      // 
-      this.ContactPicture_pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
-      this.ContactPicture_pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.ContactPicture_pictureBox.Location = new System.Drawing.Point(100, 17);
-      this.ContactPicture_pictureBox.Name = "ContactPicture_pictureBox";
-      this.ContactPicture_pictureBox.Size = new System.Drawing.Size(164, 135);
-      this.ContactPicture_pictureBox.TabIndex = 0;
-      this.ContactPicture_pictureBox.TabStop = false;
       // 
       // Home
       // 
