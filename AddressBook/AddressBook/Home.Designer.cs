@@ -52,6 +52,8 @@
       this.AddContact_Button = new System.Windows.Forms.Button();
       this.Edit_Button = new System.Windows.Forms.Button();
       this.AddInfo_Button = new System.Windows.Forms.Button();
+      this.BookDelete_button = new System.Windows.Forms.Button();
+      this.ContactDelete_button = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
       this.ContactInfo_Panel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ContactPicture_pictureBox)).BeginInit();
@@ -80,7 +82,7 @@
       this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.personToolStripMenuItem});
       this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-      this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.newToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
       this.newToolStripMenuItem.Text = "New";
       // 
       // personToolStripMenuItem
@@ -243,11 +245,17 @@
       // 
       // FirstName_textBox
       // 
+      this.FirstName_textBox.BackColor = System.Drawing.Color.White;
+      this.FirstName_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.FirstName_textBox.ForeColor = System.Drawing.SystemColors.ControlDark;
+      this.FirstName_textBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
       this.FirstName_textBox.Location = new System.Drawing.Point(100, 191);
       this.FirstName_textBox.Name = "FirstName_textBox";
       this.FirstName_textBox.Size = new System.Drawing.Size(67, 20);
       this.FirstName_textBox.TabIndex = 0;
       this.FirstName_textBox.Text = "First";
+      this.FirstName_textBox.Click += new System.EventHandler(this.FirstName_textBox_Click);
+      this.FirstName_textBox.TextChanged += new System.EventHandler(this.FirstName_textBox_TextChanged);
       // 
       // AddContact_Button
       // 
@@ -279,11 +287,31 @@
       this.AddInfo_Button.UseVisualStyleBackColor = true;
       this.AddInfo_Button.Click += new System.EventHandler(this.AddInfo_Button_Click);
       // 
+      // BookDelete_button
+      // 
+      this.BookDelete_button.Location = new System.Drawing.Point(79, 409);
+      this.BookDelete_button.Name = "BookDelete_button";
+      this.BookDelete_button.Size = new System.Drawing.Size(53, 23);
+      this.BookDelete_button.TabIndex = 8;
+      this.BookDelete_button.Text = "Delete";
+      this.BookDelete_button.UseVisualStyleBackColor = true;
+      // 
+      // ContactDelete_button
+      // 
+      this.ContactDelete_button.Location = new System.Drawing.Point(205, 409);
+      this.ContactDelete_button.Name = "ContactDelete_button";
+      this.ContactDelete_button.Size = new System.Drawing.Size(53, 23);
+      this.ContactDelete_button.TabIndex = 9;
+      this.ContactDelete_button.Text = "Delete";
+      this.ContactDelete_button.UseVisualStyleBackColor = true;
+      // 
       // Home
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(613, 444);
+      this.Controls.Add(this.ContactDelete_button);
+      this.Controls.Add(this.BookDelete_button);
       this.Controls.Add(this.AddInfo_Button);
       this.Controls.Add(this.Edit_Button);
       this.Controls.Add(this.AddContact_Button);
@@ -332,6 +360,8 @@
     private System.Windows.Forms.TextBox Email_textBox;
     private System.Windows.Forms.TextBox FirstName_textBox;
     private System.Windows.Forms.Button AddInfo_Button;
+    private System.Windows.Forms.Button BookDelete_button;
+    private System.Windows.Forms.Button ContactDelete_button;
   }
 }
 
