@@ -17,6 +17,7 @@ namespace AddressBook
   {
     private List<Book> books = new List<Book>();
     private List<string> _contacts = new List<string>();
+    private List<Contact> toDeleteContacts = new List<Contact>();
     private DataManager DManager;
     private bool saved;
     public Home() 
@@ -24,20 +25,12 @@ namespace AddressBook
       InitializeComponent();
 
       DManager = new DataManager("MyDatabase.sqlite");
-      DManager.createTable("contacts", "(book int, name varchar(20))");
+      DManager.createTable("contacts", "(book int, name varchar(20), id int)");
       DManager.createTable("books", "(name varchar(20), id int)");
       //DManager.insertIntoTable("contacts", "(book, name)", "('1', 'brad')");
       //DManager.insertIntoTable("contacts", "(book, name)", "('1', 'sean')");
       //DManager.insertIntoTable("contacts", "(book, name)", "('1', 'bradley')");
-      
-      string sql = "select * from contacts";
-      SQLiteCommand ttCommand = new SQLiteCommand(sql, DManager.getSQLConn());
-      Console.WriteLine("reading contacts table");
-      SQLiteDataReader readert = ttCommand.ExecuteReader();
-      while (readert.Read())
-      {
-        Console.WriteLine("Name: " + readert["name"] + " Book: " + readert["book"]);
-      }
+     
       loadData();
     }
 
@@ -90,7 +83,7 @@ namespace AddressBook
           continue;
         }
 
-        Contact c = new Contact(b, (string)reader["name"]);
+        Contact c = new Contact(b, (string)reader["name"], (int)reader["id"]);
         c.isSaved = true;
         b.addPerson(c);
       }
@@ -115,10 +108,20 @@ namespace AddressBook
         {
           if (!c.isSaved)
           {
-            DManager.insertIntoTable("contacts", "(book, name)", "('" + b.id + "', '" + c.name + "')");
+            DManager.insertIntoTable("contacts", "(book, name, id)", "('" + b.id + "', '" + c.name + "', '" + c.id +"')");
           }
         }
       }
+
+      while(toDeleteContacts.Count() > 0)
+      {
+        Contact c = toDeleteContacts[0];
+
+        DManager.deleteFromTable("contacts", "name='" + c.name + "' and id='" + c.id + "'");
+
+        toDeleteContacts.Remove(c);
+      }
+
       update(false);
     }
     
@@ -144,6 +147,7 @@ namespace AddressBook
       Contacts_ListBox.DataSource = null;
       Contacts_ListBox.DataSource = b.getContacts();
       Contacts_ListBox.SelectedIndex = b.getContacts().Count - 1;
+      update(true);
     }
 
     private void Edit_Button_Click(object sender, EventArgs e)
@@ -164,7 +168,6 @@ namespace AddressBook
         return;
       }
       Contacts_ListBox.DataSource = b.getContacts();
-
     }
 
     private void FirstName_textBox_Click(object sender, EventArgs e)
@@ -295,6 +298,7 @@ namespace AddressBook
         index -= 1;
       }
       Books_ListBox.SelectedIndex = index;
+      update(true);
     }
 
     private void ContactDelete_button_Click(object sender, EventArgs e)
@@ -310,6 +314,7 @@ namespace AddressBook
       {
         return;
       }
+      Contact c = b.getContacts()[index];
       b.getContacts().RemoveAt(index);
       Contacts_ListBox.DataSource = null;
       Contacts_ListBox.DataSource = b.getContacts();
@@ -318,6 +323,8 @@ namespace AddressBook
         index -= 1;
       }
       Contacts_ListBox.SelectedIndex = index;
+      toDeleteContacts.Add(c);
+      update(true);
     }
 
     private void saveToolStripMenuItem_Click(object sender, EventArgs e)
