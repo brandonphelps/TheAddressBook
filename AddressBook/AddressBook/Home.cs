@@ -18,7 +18,6 @@ namespace AddressBook
     private List<Book> books = new List<Book>();
     private List<string> _contacts = new List<string>();
     private DataManager DManager;
-
     public Home() 
     {
       InitializeComponent();
@@ -52,13 +51,13 @@ namespace AddressBook
       string sql = "select * from contacts";
       SQLiteCommand command = new SQLiteCommand(sql, DManager.getSQLConn());
       SQLiteDataReader reader = command.ExecuteReader();
+      Book b = new Book("First");
+
       while(reader.Read())
       {
-        _contacts.Add((string)reader["name"]);
+        b.addPerson(new Contact((string)reader["name"]));
       }
-      Contacts_ListBox.DataSource = _contacts;
-
-      books.Add(new Book());
+      books.Add(b);
       Books_ListBox.DataSource = books;
     }
 
@@ -74,19 +73,40 @@ namespace AddressBook
     
     private void AddBook_Button_Click(object sender, EventArgs e)
     {
-     
+      Book b = new Book("new book");
+      books.Add(b);
+      Books_ListBox.DataSource = null;
+      Books_ListBox.DataSource = books;
+      Books_ListBox.SelectedIndex = books.Count() - 1;
     }
 
     private void AddContact_Button_Click(object sender, EventArgs e)
     {
-      _contacts.Add("new contact");
+      Book b = (Book)Books_ListBox.SelectedItem;  
+      b.addPerson(new Contact("new contact"));
       Contacts_ListBox.DataSource = null;
-      Contacts_ListBox.DataSource = _contacts;
-      Contacts_ListBox.SelectedIndex = _contacts.Count - 1;
+      Contacts_ListBox.DataSource = b.getContacts();
+      Contacts_ListBox.SelectedIndex = b.getContacts().Count - 1;
     }
 
     private void Edit_Button_Click(object sender, EventArgs e)
     {
+
+    }
+
+    private void AddInfo_Button_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void Books_ListBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      Book b = (Book)Books_ListBox.SelectedItem;
+      if(b == null)
+      {
+        return;
+      }
+      Contacts_ListBox.DataSource = b.getContacts();
 
     }
   }

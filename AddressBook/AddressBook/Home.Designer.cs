@@ -98,6 +98,7 @@
       this.Books_ListBox.Name = "Books_ListBox";
       this.Books_ListBox.Size = new System.Drawing.Size(120, 379);
       this.Books_ListBox.TabIndex = 1;
+      this.Books_ListBox.SelectedIndexChanged += new System.EventHandler(this.Books_ListBox_SelectedIndexChanged);
       // 
       // AddBook_Button
       // 
@@ -276,6 +277,7 @@
       this.AddInfo_Button.TabIndex = 7;
       this.AddInfo_Button.Text = "Add";
       this.AddInfo_Button.UseVisualStyleBackColor = true;
+      this.AddInfo_Button.Click += new System.EventHandler(this.AddInfo_Button_Click);
       // 
       // Home
       // 
