@@ -109,5 +109,19 @@ namespace AddressBook
       Contacts_ListBox.DataSource = b.getContacts();
 
     }
+
+    private void FirstName_textBox_Click(object sender, EventArgs e)
+    {
+      if (FirstName_textBox.Text == "First")
+      {
+        FirstName_textBox.Clear();
+        FirstName_textBox.ForeColor = System.Drawing.Color.Black;
+      }
+    }
+
+    private void FirstName_textBox_TextChanged(object sender, EventArgs e)
+    {
+      
+    }
   }
 }
