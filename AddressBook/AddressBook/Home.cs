@@ -119,9 +119,106 @@ namespace AddressBook
       }
     }
 
-    private void FirstName_textBox_TextChanged(object sender, EventArgs e)
+    private void FirstName_textBox_Leave(object sender, EventArgs e)
     {
-      
+      if (FirstName_textBox.Text == "")
+      {
+        FirstName_textBox.ForeColor = System.Drawing.Color.DimGray;
+        FirstName_textBox.Text = "First";
+      }
     }
+
+    private void MidName_textBox_Click(object sender, EventArgs e)
+    {
+      if (MidName_textBox.Text == "Middle")
+      {
+        MidName_textBox.Clear();
+        MidName_textBox.ForeColor = System.Drawing.Color.Black;
+      }
+    }
+
+    private void MidName_textBox_Leave(object sender, EventArgs e)
+    {
+      if (MidName_textBox.Text == "")
+      {
+        MidName_textBox.ForeColor = System.Drawing.Color.DimGray;
+        MidName_textBox.Text = "Middle";
+      }
+    }
+
+    private void LastName_textBox_Click(object sender, EventArgs e)
+    {
+      if (LastName_textBox.Text == "Last")
+      {
+        LastName_textBox.Clear();
+        LastName_textBox.ForeColor = System.Drawing.Color.Black;
+      }
+    }
+
+    private void LastName_textBox_Leave(object sender, EventArgs e)
+    {
+      if (LastName_textBox.Text == "")
+      {
+        LastName_textBox.ForeColor = System.Drawing.Color.DimGray;
+        LastName_textBox.Text = "Last";
+      }
+    }
+
+    private void Address_textBox_Click(object sender, EventArgs e)
+    {
+      if (Address_textBox.Text == "1234 N Sample St. Sample City, Sample 12345")
+      {
+        Address_textBox.Clear();
+        Address_textBox.ForeColor = System.Drawing.Color.Black;
+      }
+    }
+
+    private void Address_textBox_Leave(object sender, EventArgs e)
+    {
+      if (Address_textBox.Text == "")
+      {
+        Address_textBox.ForeColor = System.Drawing.Color.DimGray;
+        Address_textBox.Text = "1234 N Sample St. Sample City, Sample 12345";
+      }
+    }
+
+    private void Phone_textBox_Click(object sender, EventArgs e)
+    {
+      if (Phone_textBox.Text == "(123) 456-7890")
+      {
+        Phone_textBox.Clear();
+        Phone_textBox.ForeColor = System.Drawing.Color.Black;
+      }
+    }
+
+    private void Phone_textBox_Leave(object sender, EventArgs e)
+    {
+      if (Phone_textBox.Text == "")
+      {
+        Phone_textBox.ForeColor = System.Drawing.Color.DimGray;
+        Phone_textBox.Text = "(123) 456-7890";
+      }
+    }
+
+    private void Email_textBox_Click(object sender, EventArgs e)
+    {
+      if (Email_textBox.Text == "sample@sample.com")
+      {
+        Email_textBox.Clear();
+        Email_textBox.ForeColor = System.Drawing.Color.Black;
+      }
+    }
+
+    private void Email_textBox_Leave(object sender, EventArgs e)
+    {
+      if (Email_textBox.Text == "")
+      {
+        Email_textBox.ForeColor = System.Drawing.Color.DimGray;
+        Email_textBox.Text = "sample@sample.com";
+      }
+    }
+
+    
+   
   }
 }
