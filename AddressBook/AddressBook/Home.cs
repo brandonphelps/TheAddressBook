@@ -18,26 +18,33 @@ namespace AddressBook
     private List<Book> books = new List<Book>();
     private List<string> _contacts = new List<string>();
     private DataManager DManager;
+    private bool saved;
     public Home() 
     {
       InitializeComponent();
 
       DManager = new DataManager("MyDatabase.sqlite");
-      DManager.createTable("contacts", "(name varchar(20))");
-
-      //DManager.insertIntoTable("contacts", "(name)", "('brad')");
-      //DManager.insertIntoTable("contacts", "(name)", "('sean')");
-      //DManager.insertIntoTable("contacts", "(name)", "('bradley')");
-
+      DManager.createTable("contacts", "(book int, name varchar(20))");
+      DManager.createTable("books", "(name varchar(20), id int)");
+      //DManager.insertIntoTable("contacts", "(book, name)", "('1', 'brad')");
+      //DManager.insertIntoTable("contacts", "(book, name)", "('1', 'sean')");
+      //DManager.insertIntoTable("contacts", "(book, name)", "('1', 'bradley')");
+      
       string sql = "select * from contacts";
       SQLiteCommand ttCommand = new SQLiteCommand(sql, DManager.getSQLConn());
       Console.WriteLine("reading contacts table");
       SQLiteDataReader readert = ttCommand.ExecuteReader();
       while (readert.Read())
       {
-        Console.WriteLine("Name: " + readert["name"]);
+        Console.WriteLine("Name: " + readert["name"] + " Book: " + readert["book"]);
       }
       loadData();
+    }
+
+    public void update(bool c)
+    {
+      saved = c;
+      this.Text = c ? "Address Book*" : "Address Book";
     }
 
     private void Form1_Load(object sender, EventArgs e)
@@ -45,30 +52,74 @@ namespace AddressBook
 
     }
 
+    public Book getBookById(int id)
+    {
+      foreach(Book b in books)
+      {
+        if(b.id == id)
+        {
+          return b;
+        }
+      }
+      return null;
+    }
+
     private void loadData()
     {
-      DManager = new DataManager("MyDatabase.sqlite");
-      string sql = "select * from contacts";
+      // First load books
+      string sql = "select * from books";
       SQLiteCommand command = new SQLiteCommand(sql, DManager.getSQLConn());
       SQLiteDataReader reader = command.ExecuteReader();
-      Book b = new Book("First");
-
       while(reader.Read())
       {
-        b.addPerson(new Contact((string)reader["name"]));
+        Book b = new Book((string)reader["name"], (int)reader["id"]);
+        b.isSaved = true;
+        books.Add(b);
       }
-      books.Add(b);
+
+
+      // Second load contacts into books
+      sql = "select * from contacts";
+      command = new SQLiteCommand(sql, DManager.getSQLConn());
+      reader = command.ExecuteReader();
+      while(reader.Read())
+      {
+        Book b = getBookById((int)reader["book"]);
+        if(b == null)
+        {
+          continue;
+        }
+
+        Contact c = new Contact(b, (string)reader["name"]);
+        c.isSaved = true;
+        b.addPerson(c);
+      }
       Books_ListBox.DataSource = books;
     }
 
     private void saveData()
     {
-
-    }
-
-    public void displayBook()
-    { 
-          
+      if(!saved)
+      {
+        return;
+      }
+      
+      string sql = "";
+      foreach (Book b in books)
+      {
+        if (!b.isSaved)
+        {
+          DManager.insertIntoTable("books", "(name, id)", "('" + b.name + "', '" + b.id + "')");
+        }
+        foreach(Contact c in b.getContacts())
+        {
+          if (!c.isSaved)
+          {
+            DManager.insertIntoTable("contacts", "(book, name)", "('" + b.id + "', '" + c.name + "')");
+          }
+        }
+      }
+      update(false);
     }
     
     private void AddBook_Button_Click(object sender, EventArgs e)
@@ -78,12 +129,18 @@ namespace AddressBook
       Books_ListBox.DataSource = null;
       Books_ListBox.DataSource = books;
       Books_ListBox.SelectedIndex = books.Count() - 1;
+
+      update(true);
     }
 
     private void AddContact_Button_Click(object sender, EventArgs e)
     {
-      Book b = (Book)Books_ListBox.SelectedItem;  
-      b.addPerson(new Contact("new contact"));
+      Book b = (Book)Books_ListBox.SelectedItem; 
+      if(b == null)
+      {
+        return;
+      }
+      b.addPerson(new Contact(b, "new contact"));
       Contacts_ListBox.DataSource = null;
       Contacts_ListBox.DataSource = b.getContacts();
       Contacts_ListBox.SelectedIndex = b.getContacts().Count - 1;
@@ -218,7 +275,54 @@ namespace AddressBook
       }
     }
 
-    
-   
+    private void BookDelete_button_Click(object sender, EventArgs e)
+    {
+      if(books.Count() < 1)
+      {
+        return;
+      }
+
+      int index = Books_ListBox.SelectedIndex;
+      if(index < 0 || index >= books.Count())
+      {
+        return;
+      }
+      books.RemoveAt(index);
+      Books_ListBox.DataSource = null;
+      Books_ListBox.DataSource = books;
+      if(index >= books.Count())
+      {
+        index -= 1;
+      }
+      Books_ListBox.SelectedIndex = index;
+    }
+
+    private void ContactDelete_button_Click(object sender, EventArgs e)
+    {
+      Book b = (Book)Books_ListBox.SelectedItem;
+      if(b == null)
+      {
+        return; 
+      }
+
+      int index = Contacts_ListBox.SelectedIndex;
+      if (index < 0 || index >= b.getContacts().Count())
+      {
+        return;
+      }
+      b.getContacts().RemoveAt(index);
+      Contacts_ListBox.DataSource = null;
+      Contacts_ListBox.DataSource = b.getContacts();
+      if(index >= b.getContacts().Count())
+      {
+        index -= 1;
+      }
+      Contacts_ListBox.SelectedIndex = index;
+    }
+
+    private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      saveData();
+    }
   }
 }

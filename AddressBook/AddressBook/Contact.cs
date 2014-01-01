@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    class Contact
+    public class Contact
     {
-      public Contact(string c)
+      public Contact(Book b, string c)
       {
         name = c;
+        assignedBook = b;
       }
 
       public string name { get; private set; }
@@ -18,6 +19,8 @@ namespace AddressBook
       public string emailAddress { get; private set; }
       public string streetAddress { get; private set; }
       public DateTime birthday { get; private set; }
+      public Book assignedBook { get; private set; }
+      public bool isSaved { get; set; }
       public override string ToString()
       {
         return name;

@@ -36,6 +36,7 @@
       this.AddBook_Button = new System.Windows.Forms.Button();
       this.Contacts_ListBox = new System.Windows.Forms.ListBox();
       this.ContactInfo_Panel = new System.Windows.Forms.Panel();
+      this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
       this.ContactPicture_pictureBox = new System.Windows.Forms.PictureBox();
       this.BDay_Label = new System.Windows.Forms.Label();
       this.Email_Label = new System.Windows.Forms.Label();
@@ -53,7 +54,7 @@
       this.AddInfo_Button = new System.Windows.Forms.Button();
       this.BookDelete_button = new System.Windows.Forms.Button();
       this.ContactDelete_button = new System.Windows.Forms.Button();
-      this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+      this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menuStrip1.SuspendLayout();
       this.ContactInfo_Panel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ContactPicture_pictureBox)).BeginInit();
@@ -72,7 +73,8 @@
       // fileToolStripMenuItem
       // 
       this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem});
+            this.newToolStripMenuItem,
+            this.saveToolStripMenuItem});
       this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
       this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
       this.fileToolStripMenuItem.Text = "File";
@@ -143,6 +145,13 @@
       this.ContactInfo_Panel.Name = "ContactInfo_Panel";
       this.ContactInfo_Panel.Size = new System.Drawing.Size(337, 379);
       this.ContactInfo_Panel.TabIndex = 4;
+      // 
+      // dateTimePicker1
+      // 
+      this.dateTimePicker1.Location = new System.Drawing.Point(100, 292);
+      this.dateTimePicker1.Name = "dateTimePicker1";
+      this.dateTimePicker1.Size = new System.Drawing.Size(213, 20);
+      this.dateTimePicker1.TabIndex = 6;
       // 
       // ContactPicture_pictureBox
       // 
@@ -306,6 +315,7 @@
       this.BookDelete_button.TabIndex = 8;
       this.BookDelete_button.Text = "Delete";
       this.BookDelete_button.UseVisualStyleBackColor = true;
+      this.BookDelete_button.Click += new System.EventHandler(this.BookDelete_button_Click);
       // 
       // ContactDelete_button
       // 
@@ -315,13 +325,14 @@
       this.ContactDelete_button.TabIndex = 9;
       this.ContactDelete_button.Text = "Delete";
       this.ContactDelete_button.UseVisualStyleBackColor = true;
+      this.ContactDelete_button.Click += new System.EventHandler(this.ContactDelete_button_Click);
       // 
-      // dateTimePicker1
+      // saveToolStripMenuItem
       // 
-      this.dateTimePicker1.Location = new System.Drawing.Point(100, 292);
-      this.dateTimePicker1.Name = "dateTimePicker1";
-      this.dateTimePicker1.Size = new System.Drawing.Size(213, 20);
-      this.dateTimePicker1.TabIndex = 6;
+      this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+      this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.saveToolStripMenuItem.Text = "Save";
+      this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
       // 
       // Home
       // 
@@ -380,6 +391,7 @@
     private System.Windows.Forms.Button BookDelete_button;
     private System.Windows.Forms.Button ContactDelete_button;
     private System.Windows.Forms.DateTimePicker dateTimePicker1;
+    private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
   }
 }
 

@@ -6,14 +6,29 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    class Book
+    public class Book
     {
+      private static int next_id = 0;
+      public int id { get; private set; }
+      public bool isSaved { get; set; }
+      public string name { get; private set; }
         private List<Contact> contacts;
-        private string name;
         public Book(string name)
         {
-            contacts = new List<Contact>();
-            this.name = name;
+          contacts = new List<Contact>();
+          this.name = name;
+          id = next_id++;
+        }
+
+        public Book(string name, int id)
+        {
+          contacts = new List<Contact>();
+          this.name = name;
+          this.id = id;
+          if(next_id <= id)
+          {
+            next_id = id+1;
+          }
         }
 
         public void addPerson(Contact c)
@@ -30,5 +45,6 @@ namespace AddressBook
         {
             return name;
         }
+        
     }
 }
