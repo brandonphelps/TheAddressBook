@@ -8,10 +8,24 @@ namespace AddressBook
 {
     public class Contact
     {
+      private static int next_id = 0;
+      public int id { get; private set; }
       public Contact(Book b, string c)
       {
         name = c;
         assignedBook = b;
+        id = next_id++;
+      }
+
+      public Contact(Book b, string c, int id)
+      {
+        name = c;
+        assignedBook = b;
+        this.id = id;
+        if(next_id <= id)
+        {
+          next_id = id + 1;
+        }
       }
 
       public string name { get; private set; }

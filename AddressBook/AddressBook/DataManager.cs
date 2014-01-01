@@ -75,6 +75,22 @@ namespace AddressBook
       }
     }
 
+    public void deleteFromTable(string table, string condition)
+    {
+      SQLiteCommand command = null;
+      try
+      {
+        sql_query = "delete from " + table + " where " + condition;
+        command = new SQLiteCommand(sql_query, m_dbConnection);
+        command.ExecuteNonQuery();
+      }
+      catch(Exception e)
+      {
+
+      }
+
+    }
+
     public void selectFromTable(string selectParams, string tableName, string other)
     {
       try
