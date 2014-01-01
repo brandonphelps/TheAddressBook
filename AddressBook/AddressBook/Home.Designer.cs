@@ -32,6 +32,7 @@
       this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.personToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.Books_ListBox = new System.Windows.Forms.ListBox();
       this.AddBook_Button = new System.Windows.Forms.Button();
       this.Contacts_ListBox = new System.Windows.Forms.ListBox();
@@ -54,7 +55,6 @@
       this.AddInfo_Button = new System.Windows.Forms.Button();
       this.BookDelete_button = new System.Windows.Forms.Button();
       this.ContactDelete_button = new System.Windows.Forms.Button();
-      this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menuStrip1.SuspendLayout();
       this.ContactInfo_Panel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ContactPicture_pictureBox)).BeginInit();
@@ -92,6 +92,13 @@
       this.personToolStripMenuItem.Name = "personToolStripMenuItem";
       this.personToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
       this.personToolStripMenuItem.Text = "Person";
+      // 
+      // saveToolStripMenuItem
+      // 
+      this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+      this.saveToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+      this.saveToolStripMenuItem.Text = "Save";
+      this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
       // 
       // Books_ListBox
       // 
@@ -216,7 +223,7 @@
       this.LastName_textBox.Size = new System.Drawing.Size(67, 20);
       this.LastName_textBox.TabIndex = 2;
       this.LastName_textBox.Text = "Last";
-      this.LastName_textBox.Click += new System.EventHandler(this.LastName_textBox_Click);
+      this.LastName_textBox.Enter += new System.EventHandler(this.LastName_textBox_Enter);
       this.LastName_textBox.Leave += new System.EventHandler(this.LastName_textBox_Leave);
       // 
       // MidName_textBox
@@ -227,7 +234,7 @@
       this.MidName_textBox.Size = new System.Drawing.Size(67, 20);
       this.MidName_textBox.TabIndex = 1;
       this.MidName_textBox.Text = "Middle";
-      this.MidName_textBox.Click += new System.EventHandler(this.MidName_textBox_Click);
+      this.MidName_textBox.Enter += new System.EventHandler(this.MidName_textBox_Enter);
       this.MidName_textBox.Leave += new System.EventHandler(this.MidName_textBox_Leave);
       // 
       // Address_textBox
@@ -238,7 +245,7 @@
       this.Address_textBox.Size = new System.Drawing.Size(213, 20);
       this.Address_textBox.TabIndex = 3;
       this.Address_textBox.Text = "1234 N Sample St. Sample City, Sample 12345";
-      this.Address_textBox.Click += new System.EventHandler(this.Address_textBox_Click);
+      this.Address_textBox.Enter += new System.EventHandler(this.Address_textBox_Enter);
       this.Address_textBox.Leave += new System.EventHandler(this.Address_textBox_Leave);
       // 
       // Phone_textBox
@@ -249,7 +256,7 @@
       this.Phone_textBox.Size = new System.Drawing.Size(213, 20);
       this.Phone_textBox.TabIndex = 4;
       this.Phone_textBox.Text = "(123) 456-7890";
-      this.Phone_textBox.Click += new System.EventHandler(this.Phone_textBox_Click);
+      this.Phone_textBox.Enter += new System.EventHandler(this.Phone_textBox_Enter);
       this.Phone_textBox.Leave += new System.EventHandler(this.Phone_textBox_Leave);
       // 
       // Email_textBox
@@ -260,7 +267,7 @@
       this.Email_textBox.Size = new System.Drawing.Size(213, 20);
       this.Email_textBox.TabIndex = 5;
       this.Email_textBox.Text = "sample@sample.com";
-      this.Email_textBox.Click += new System.EventHandler(this.Email_textBox_Click);
+      this.Email_textBox.Enter += new System.EventHandler(this.Email_textBox_Enter);
       this.Email_textBox.Leave += new System.EventHandler(this.Email_textBox_Leave);
       // 
       // FirstName_textBox
@@ -274,7 +281,7 @@
       this.FirstName_textBox.Size = new System.Drawing.Size(67, 20);
       this.FirstName_textBox.TabIndex = 0;
       this.FirstName_textBox.Text = "First";
-      this.FirstName_textBox.Click += new System.EventHandler(this.FirstName_textBox_Click);
+      this.FirstName_textBox.Enter += new System.EventHandler(this.FirstName_textBox_Enter);
       this.FirstName_textBox.Leave += new System.EventHandler(this.FirstName_textBox_Leave);
       // 
       // AddContact_Button
@@ -326,13 +333,6 @@
       this.ContactDelete_button.Text = "Delete";
       this.ContactDelete_button.UseVisualStyleBackColor = true;
       this.ContactDelete_button.Click += new System.EventHandler(this.ContactDelete_button_Click);
-      // 
-      // saveToolStripMenuItem
-      // 
-      this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-      this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-      this.saveToolStripMenuItem.Text = "Save";
-      this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
       // 
       // Home
       // 

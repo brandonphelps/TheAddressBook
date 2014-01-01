@@ -167,7 +167,8 @@ namespace AddressBook
 
     }
 
-    private void FirstName_textBox_Click(object sender, EventArgs e)
+   
+    private void FirstName_textBox_Enter(object sender, EventArgs e)
     {
       if (FirstName_textBox.Text == "First")
       {
@@ -185,7 +186,7 @@ namespace AddressBook
       }
     }
 
-    private void MidName_textBox_Click(object sender, EventArgs e)
+    private void MidName_textBox_Enter(object sender, EventArgs e)
     {
       if (MidName_textBox.Text == "Middle")
       {
@@ -203,7 +204,7 @@ namespace AddressBook
       }
     }
 
-    private void LastName_textBox_Click(object sender, EventArgs e)
+    private void LastName_textBox_Enter(object sender, EventArgs e)
     {
       if (LastName_textBox.Text == "Last")
       {
@@ -221,7 +222,7 @@ namespace AddressBook
       }
     }
 
-    private void Address_textBox_Click(object sender, EventArgs e)
+    private void Address_textBox_Enter(object sender, EventArgs e)
     {
       if (Address_textBox.Text == "1234 N Sample St. Sample City, Sample 12345")
       {
@@ -239,7 +240,7 @@ namespace AddressBook
       }
     }
 
-    private void Phone_textBox_Click(object sender, EventArgs e)
+    private void Phone_textBox_Enter(object sender, EventArgs e)
     {
       if (Phone_textBox.Text == "(123) 456-7890")
       {
@@ -257,7 +258,7 @@ namespace AddressBook
       }
     }
 
-    private void Email_textBox_Click(object sender, EventArgs e)
+    private void Email_textBox_Enter(object sender, EventArgs e)
     {
       if (Email_textBox.Text == "sample@sample.com")
       {
