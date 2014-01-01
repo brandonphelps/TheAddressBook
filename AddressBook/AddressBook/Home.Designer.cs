@@ -51,6 +51,7 @@
       this.FirstName_textBox = new System.Windows.Forms.TextBox();
       this.AddContact_Button = new System.Windows.Forms.Button();
       this.Edit_Button = new System.Windows.Forms.Button();
+      this.AddInfo_Button = new System.Windows.Forms.Button();
       this.menuStrip1.SuspendLayout();
       this.ContactInfo_Panel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ContactPicture_pictureBox)).BeginInit();
@@ -79,7 +80,7 @@
       this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.personToolStripMenuItem});
       this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-      this.newToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+      this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.newToolStripMenuItem.Text = "New";
       // 
       // personToolStripMenuItem
@@ -137,7 +138,7 @@
       this.ContactInfo_Panel.Controls.Add(this.FirstName_textBox);
       this.ContactInfo_Panel.Location = new System.Drawing.Point(264, 27);
       this.ContactInfo_Panel.Name = "ContactInfo_Panel";
-      this.ContactInfo_Panel.Size = new System.Drawing.Size(337, 381);
+      this.ContactInfo_Panel.Size = new System.Drawing.Size(337, 379);
       this.ContactInfo_Panel.TabIndex = 4;
       // 
       // ContactPicture_pictureBox
@@ -259,7 +260,7 @@
       // 
       // Edit_Button
       // 
-      this.Edit_Button.Location = new System.Drawing.Point(264, 409);
+      this.Edit_Button.Location = new System.Drawing.Point(548, 409);
       this.Edit_Button.Name = "Edit_Button";
       this.Edit_Button.Size = new System.Drawing.Size(53, 23);
       this.Edit_Button.TabIndex = 6;
@@ -267,11 +268,21 @@
       this.Edit_Button.UseVisualStyleBackColor = true;
       this.Edit_Button.Click += new System.EventHandler(this.Edit_Button_Click);
       // 
+      // AddInfo_Button
+      // 
+      this.AddInfo_Button.Location = new System.Drawing.Point(264, 409);
+      this.AddInfo_Button.Name = "AddInfo_Button";
+      this.AddInfo_Button.Size = new System.Drawing.Size(53, 23);
+      this.AddInfo_Button.TabIndex = 7;
+      this.AddInfo_Button.Text = "Add";
+      this.AddInfo_Button.UseVisualStyleBackColor = true;
+      // 
       // Home
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(613, 444);
+      this.Controls.Add(this.AddInfo_Button);
       this.Controls.Add(this.Edit_Button);
       this.Controls.Add(this.AddContact_Button);
       this.Controls.Add(this.ContactInfo_Panel);
@@ -318,6 +329,7 @@
     private System.Windows.Forms.TextBox Phone_textBox;
     private System.Windows.Forms.TextBox Email_textBox;
     private System.Windows.Forms.TextBox FirstName_textBox;
+    private System.Windows.Forms.Button AddInfo_Button;
   }
 }
 

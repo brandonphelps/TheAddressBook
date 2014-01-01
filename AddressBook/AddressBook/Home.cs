@@ -16,6 +16,7 @@ namespace AddressBook
   public partial class Home : Form
   {
     private List<Book> books = new List<Book>();
+    private List<string> _contacts = new List<string>();
     private DataManager DManager;
 
     public Home() 
@@ -25,9 +26,9 @@ namespace AddressBook
       DManager = new DataManager("MyDatabase.sqlite");
       DManager.createTable("contacts", "(name varchar(20))");
 
-      DManager.insertIntoTable("contacts", "(name)", "('brad')");
-      DManager.insertIntoTable("contacts", "(name)", "('sean')");
-      DManager.insertIntoTable("contacts", "(name)", "('bradley')");
+      //DManager.insertIntoTable("contacts", "(name)", "('brad')");
+      //DManager.insertIntoTable("contacts", "(name)", "('sean')");
+      //DManager.insertIntoTable("contacts", "(name)", "('bradley')");
 
       string sql = "select * from contacts";
       SQLiteCommand ttCommand = new SQLiteCommand(sql, DManager.getSQLConn());
@@ -37,9 +38,31 @@ namespace AddressBook
       {
         Console.WriteLine("Name: " + readert["name"]);
       }
+      loadData();
     }
 
     private void Form1_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    private void loadData()
+    {
+      DManager = new DataManager("MyDatabase.sqlite");
+      string sql = "select * from contacts";
+      SQLiteCommand command = new SQLiteCommand(sql, DManager.getSQLConn());
+      SQLiteDataReader reader = command.ExecuteReader();
+      while(reader.Read())
+      {
+        _contacts.Add((string)reader["name"]);
+      }
+      Contacts_ListBox.DataSource = _contacts;
+
+      books.Add(new Book());
+      Books_ListBox.DataSource = books;
+    }
+
+    private void saveData()
     {
 
     }
@@ -51,12 +74,15 @@ namespace AddressBook
     
     private void AddBook_Button_Click(object sender, EventArgs e)
     {
-
+     
     }
 
     private void AddContact_Button_Click(object sender, EventArgs e)
     {
-
+      _contacts.Add("new contact");
+      Contacts_ListBox.DataSource = null;
+      Contacts_ListBox.DataSource = _contacts;
+      Contacts_ListBox.SelectedIndex = _contacts.Count - 1;
     }
 
     private void Edit_Button_Click(object sender, EventArgs e)
