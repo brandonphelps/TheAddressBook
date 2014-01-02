@@ -12,39 +12,40 @@ namespace AddressBook
       public int id { get; private set; }
       public bool isSaved { get; set; }
       public string name { get; private set; }
-        private List<Contact> contacts;
-        public Book(string name)
+      private List<Contact> contacts;
+      
+      public Book(string name)
+      {
+        contacts = new List<Contact>();
+        this.name = name;
+        id = next_id++;
+      }
+      
+      public Book(string name, int id)
+      {
+        contacts = new List<Contact>();
+        this.name = name;
+        this.id = id;
+        if(next_id <= id)
         {
-          contacts = new List<Contact>();
-          this.name = name;
-          id = next_id++;
+          next_id = id+1;
         }
+      }
 
-        public Book(string name, int id)
-        {
-          contacts = new List<Contact>();
-          this.name = name;
-          this.id = id;
-          if(next_id <= id)
-          {
-            next_id = id+1;
-          }
-        }
+      public void addPerson(Contact c)
+      {
+          contacts.Add(c);
+      }
+      
+      public List<Contact> getContacts()
+      {
+        return contacts;
+      }
 
-        public void addPerson(Contact c)
-        {
-            contacts.Add(c);
-        }
-        
-        public List<Contact> getContacts()
-        {
-          return contacts;
-        }
-
-        public override string ToString()
-        {
-            return name;
-        }
+      public override string ToString()
+      {
+          return name;
+      }
         
     }
 }
