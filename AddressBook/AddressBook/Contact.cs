@@ -28,7 +28,7 @@ namespace AddressBook
         }
       }
 
-      public string name { get; private set; }
+      public string name { get; set; }
       public string phone { get; private set; }
       public string emailAddress { get; private set; }
       public string streetAddress { get; private set; }

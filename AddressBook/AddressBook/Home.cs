@@ -150,6 +150,16 @@ namespace AddressBook
       update(true);
     }
 
+    private void displayContactInfo(object sender, EventArgs e)
+    {
+      Contact c = (Contact)Contacts_ListBox.SelectedItem;
+      if(c == null)
+      {
+        return;
+      }
+      FirstName_textBox.Text = c.name;
+    }
+
     private void Edit_Button_Click(object sender, EventArgs e)
     {
 
@@ -187,6 +197,11 @@ namespace AddressBook
         FirstName_textBox.ForeColor = System.Drawing.Color.DimGray;
         FirstName_textBox.Text = "First";
       }
+      Contact c = (Contact)Contacts_ListBox.SelectedItem;
+      c.name = FirstName_textBox.Text;
+      Contacts_ListBox.DataSource = null;
+      Book b = (Book)Books_ListBox.SelectedItem;
+      Contacts_ListBox.DataSource = b.getContacts();
     }
 
     private void MidName_textBox_Enter(object sender, EventArgs e)

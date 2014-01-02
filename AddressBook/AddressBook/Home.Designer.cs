@@ -130,6 +130,7 @@
       this.Contacts_ListBox.Name = "Contacts_ListBox";
       this.Contacts_ListBox.Size = new System.Drawing.Size(120, 379);
       this.Contacts_ListBox.TabIndex = 3;
+      this.Contacts_ListBox.SelectedIndexChanged += new System.EventHandler(this.displayContactInfo);
       // 
       // ContactInfo_Panel
       // 
