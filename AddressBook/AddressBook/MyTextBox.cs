@@ -31,7 +31,7 @@ namespace AddressBook
       if(this.Text == "")
       {
         this.ForeColor = System.Drawing.Color.DimGray;
-        this.Text = "First";
+        this.Text = defaultString;
       }
     }
   }
