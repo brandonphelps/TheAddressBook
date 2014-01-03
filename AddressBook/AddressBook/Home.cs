@@ -123,7 +123,7 @@ namespace AddressBook
       while(toModifyContacts.Count() > 0)
       {
         Contact c = toModifyContacts[0];
-        temp_msg = "book='" + c.assignedBook.id + "', name='" + c.name + "', id='" + c.id + "'";
+        temp_msg = "book='" + c.assignedBook.id + "', name='" + c.firstName + "', id='" + c.id + "'";
         DManager.updateAtTable("contacts", temp_msg, "id='" + c.id + "'");
         c.isSaved = true;
         toModifyContacts.Remove(c);
@@ -143,7 +143,7 @@ namespace AddressBook
         {
           if (!c.isSaved)
           {
-            DManager.insertIntoTable("contacts", "(book, name, id)", "('" + b.id + "', '" + c.name + "', '" + c.id +"')");
+            DManager.insertIntoTable("contacts", "(book, name, id)", "('" + b.id + "', '" + c.firstName + "', '" + c.id +"')");
             c.isSaved = true;
           }
         }
@@ -154,7 +154,7 @@ namespace AddressBook
       {
         Contact c = toDeleteContacts[0];
 
-        DManager.deleteFromTable("contacts", "name='" + c.name + "' and id='" + c.id + "'");
+        DManager.deleteFromTable("contacts", "name='" + c.firstName + "' and id='" + c.id + "'");
 
         toDeleteContacts.Remove(c);
       }
@@ -200,7 +200,7 @@ namespace AddressBook
       {
         return;
       }
-      Contact c = new Contact(b, "new contact");
+      Contact c = new Contact(b);
       b.addPerson(c);
       Contacts_ListBox.DataSource = null;
       Contacts_ListBox.DataSource = b.getContacts();
@@ -218,7 +218,9 @@ namespace AddressBook
       {
         return;
       }
-      FirstName_textBox.Text = c.name;
+      FirstName_textBox.Text = c.firstName;
+      MidName_textBox.Text = c.middleName;
+      LastName_textBox.Text = c.lastName;
     }
 
     private void Edit_Button_Click(object sender, EventArgs e)
