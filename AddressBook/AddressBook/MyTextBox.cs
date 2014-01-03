@@ -9,8 +9,10 @@ namespace AddressBook
   class MyTextBox : System.Windows.Forms.TextBox
   {
     private string defaultString {get; set; }
-    public MyTextBox(string defaultValue) : base()
+    private Home container;
+    public MyTextBox(Home parent, string defaultValue) : base()
     {
+      this.container = parent;
       this.defaultString = defaultValue;
       this.Text = this.defaultString;
       this.Enter += new System.EventHandler(this.EnterEnter);
@@ -33,6 +35,14 @@ namespace AddressBook
         this.ForeColor = System.Drawing.Color.DimGray;
         this.Text = defaultString;
       }
+      Contact c = this.container.getSelectedContact();
+      if(c == null)
+      {
+        return;
+      }
+      c.name = this.Text;
+      this.container.addModifyContact(c);
+      this.container.refreshDataSources();
     }
   }
 }

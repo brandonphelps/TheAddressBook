@@ -44,12 +44,12 @@
       this.Phone_Label = new System.Windows.Forms.Label();
       this.Address_Label = new System.Windows.Forms.Label();
       this.ContactName_label = new System.Windows.Forms.Label();
-      this.FirstName_textBox = new MyTextBox("First");
-      this.MidName_textBox = new MyTextBox("Middle");
-      this.LastName_textBox = new MyTextBox("Last");
-      this.Address_textBox = new MyTextBox("1234 N Sample St. Sample City, Sample 12345");
-      this.Phone_textBox = new MyTextBox("(123) 456-7890");
-      this.Email_textBox = new MyTextBox("sample@sample.com");
+      this.FirstName_textBox = new MyTextBox(this, "First");
+      this.MidName_textBox = new MyTextBox(this, "Middle");
+      this.LastName_textBox = new MyTextBox(this, "Last");
+      this.Address_textBox = new MyTextBox(this, "1234 N Sample St. Sample City, Sample 12345");
+      this.Phone_textBox = new MyTextBox(this, "(123) 456-7890");
+      this.Email_textBox = new MyTextBox(this, "sample@sample.com");
 
       this.AddContact_Button = new System.Windows.Forms.Button();
       this.Edit_Button = new System.Windows.Forms.Button();

@@ -59,6 +59,24 @@ namespace AddressBook
       return null;
     }
 
+    public Contact getContactById(int id)
+    {
+	    Book b = (Book) Books_ListBox.SelectedItem;
+	    foreach(Contact c in b.getContacts())
+      {
+        if(c.id == id)
+        {
+          return c;
+        }
+      }
+      return null;
+    }
+
+    public Contact getSelectedContact()
+    {
+      return (Contact)Contacts_ListBox.SelectedItem;
+    }
+
     private void loadData()
     {
       // First load books
@@ -131,7 +149,6 @@ namespace AddressBook
         }
       }
 
-
       //delete contacts
       while(toDeleteContacts.Count() > 0)
       {
@@ -154,6 +171,15 @@ namespace AddressBook
       }
 
       update(false);
+    }
+
+    public void refreshDataSources()
+    {
+      Book b = (Book)Books_ListBox.SelectedItem;
+      Books_ListBox.DataSource = null;
+      Books_ListBox.DataSource = books;
+      Contacts_ListBox.DataSource = null;
+      Contacts_ListBox.DataSource = b.getContacts();
     }
     
     private void AddBook_Button_Click(object sender, EventArgs e)
@@ -215,22 +241,11 @@ namespace AddressBook
       Contacts_ListBox.DataSource = b.getContacts();
     }
 
-    private void FirstName_textBox_Leave(object sender, EventArgs e)
+    public void addModifyContact(Contact c)
     {
-      if (FirstName_textBox.Text == "")
-      {
-        FirstName_textBox.ForeColor = System.Drawing.Color.DimGray;
-        FirstName_textBox.Text = "First";
-      }
-      Contact c = (Contact)Contacts_ListBox.SelectedItem;
-      c.name = FirstName_textBox.Text;
-      Contacts_ListBox.DataSource = null;
-      Book b = (Book)Books_ListBox.SelectedItem;
-      Contacts_ListBox.DataSource = b.getContacts();
-      b.isSaved = false;
       c.isSaved = false;
+      c.assignedBook.isSaved = false;
       toModifyContacts.Add(c);
-      update(true);
     }
 
     private void BookDelete_button_Click(object sender, EventArgs e)
