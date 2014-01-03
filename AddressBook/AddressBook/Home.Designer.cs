@@ -49,7 +49,7 @@
       this.Address_textBox = new System.Windows.Forms.TextBox();
       this.Phone_textBox = new System.Windows.Forms.TextBox();
       this.Email_textBox = new System.Windows.Forms.TextBox();
-      this.FirstName_textBox = new System.Windows.Forms.TextBox();
+      this.FirstName_textBox = new MyTextBox("First");
       this.AddContact_Button = new System.Windows.Forms.Button();
       this.Edit_Button = new System.Windows.Forms.Button();
       this.AddInfo_Button = new System.Windows.Forms.Button();
@@ -281,9 +281,9 @@
       this.FirstName_textBox.Name = "FirstName_textBox";
       this.FirstName_textBox.Size = new System.Drawing.Size(67, 20);
       this.FirstName_textBox.TabIndex = 0;
-      this.FirstName_textBox.Text = "First";
-      this.FirstName_textBox.Enter += new System.EventHandler(this.FirstName_textBox_Enter);
-      this.FirstName_textBox.Leave += new System.EventHandler(this.FirstName_textBox_Leave);
+      //this.FirstName_textBox.Text = "First";
+      //this.FirstName_textBox.Enter += new System.EventHandler(this.FirstName_textBox_Enter);
+      //this.FirstName_textBox.Leave += new System.EventHandler(this.FirstName_textBox_Leave);
       // 
       // AddContact_Button
       // 
@@ -387,7 +387,7 @@
     private System.Windows.Forms.TextBox Address_textBox;
     private System.Windows.Forms.TextBox Phone_textBox;
     private System.Windows.Forms.TextBox Email_textBox;
-    private System.Windows.Forms.TextBox FirstName_textBox;
+    private MyTextBox FirstName_textBox;
     private System.Windows.Forms.Button AddInfo_Button;
     private System.Windows.Forms.Button BookDelete_button;
     private System.Windows.Forms.Button ContactDelete_button;

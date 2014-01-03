@@ -18,6 +18,8 @@ namespace AddressBook
     private List<Book> books = new List<Book>();
     private List<string> _contacts = new List<string>();
     private List<Contact> toDeleteContacts = new List<Contact>();
+    private List<Book> toDeleteBooks = new List<Book>();
+    private List<Contact> toModifyContacts = new List<Contact>();
     private DataManager DManager;
     private bool saved;
     public Home() 
@@ -66,10 +68,10 @@ namespace AddressBook
       while(reader.Read())
       {
         Book b = new Book((string)reader["name"], (int)reader["id"]);
+        Console.WriteLine("Book loaded: " + b.name + ", " + b.id);
         b.isSaved = true;
         books.Add(b);
       }
-
 
       // Second load contacts into books
       sql = "select * from contacts";
@@ -92,11 +94,24 @@ namespace AddressBook
 
     private void saveData()
     {
-      if(!saved)
-      {
-        return;
-      }
       
+      //if(!saved)
+      //{
+      //  return;
+      //}
+      
+      //modify contacts
+      string temp_msg = "";
+      while(toModifyContacts.Count() > 0)
+      {
+        Contact c = toModifyContacts[0];
+        temp_msg = "book='" + c.assignedBook.id + "', name='" + c.name + "', id='" + c.id + "'";
+        DManager.updateAtTable("contacts", temp_msg, "id='" + c.id + "'");
+        c.isSaved = true;
+        toModifyContacts.Remove(c);
+      }
+
+      //save contacts
       string sql = "";
       foreach (Book b in books)
       {
@@ -113,6 +128,8 @@ namespace AddressBook
         }
       }
 
+
+      //delete contacts
       while(toDeleteContacts.Count() > 0)
       {
         Contact c = toDeleteContacts[0];
@@ -120,6 +137,17 @@ namespace AddressBook
         DManager.deleteFromTable("contacts", "name='" + c.name + "' and id='" + c.id + "'");
 
         toDeleteContacts.Remove(c);
+      }
+
+      while(toDeleteBooks.Count() > 0)
+      {
+        Book b = toDeleteBooks[0];
+
+        DManager.deleteFromTable("contacts", "book='" + b.id + "'");
+        Console.WriteLine("Deleting book: " + b.name + ", " + b.id);
+        DManager.deleteFromTable("books", "name='" + b.name + "' and id='" + b.id + "'");
+
+        toDeleteBooks.Remove(b);
       }
 
       update(false);
@@ -132,7 +160,7 @@ namespace AddressBook
       Books_ListBox.DataSource = null;
       Books_ListBox.DataSource = books;
       Books_ListBox.SelectedIndex = books.Count() - 1;
-
+      b.isSaved = false;
       update(true);
     }
 
@@ -143,10 +171,14 @@ namespace AddressBook
       {
         return;
       }
-      b.addPerson(new Contact(b, "new contact"));
+      Contact c = new Contact(b, "new contact");
+      b.addPerson(c);
       Contacts_ListBox.DataSource = null;
       Contacts_ListBox.DataSource = b.getContacts();
       Contacts_ListBox.SelectedIndex = b.getContacts().Count - 1;
+      b.isSaved = false;
+      c.isSaved = false;
+
       update(true);
     }
 
@@ -202,6 +234,10 @@ namespace AddressBook
       Contacts_ListBox.DataSource = null;
       Book b = (Book)Books_ListBox.SelectedItem;
       Contacts_ListBox.DataSource = b.getContacts();
+      b.isSaved = false;
+      c.isSaved = false;
+      toModifyContacts.Add(c);
+      update(true);
     }
 
     private void MidName_textBox_Enter(object sender, EventArgs e)
@@ -306,6 +342,7 @@ namespace AddressBook
       {
         return;
       }
+      Book b = (Book)Books_ListBox.SelectedItem;
       books.RemoveAt(index);
       Books_ListBox.DataSource = null;
       Books_ListBox.DataSource = books;
@@ -314,6 +351,7 @@ namespace AddressBook
         index -= 1;
       }
       Books_ListBox.SelectedIndex = index;
+      toDeleteBooks.Add(b);
       update(true);
     }
 

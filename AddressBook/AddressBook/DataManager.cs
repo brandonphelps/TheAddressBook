@@ -91,6 +91,21 @@ namespace AddressBook
 
     }
 
+    public void updateAtTable(string table, string columnValues, string condition)
+    {
+      SQLiteCommand command = null;
+      try
+      {
+        sql_query = "update " + table + " set " + columnValues + " where " + condition;
+        command = new SQLiteCommand(sql_query, m_dbConnection);
+        command.ExecuteNonQuery();
+      }
+      catch(Exception e)
+      {
+
+      }
+    }
+
     public void selectFromTable(string selectParams, string tableName, string other)
     {
       try
