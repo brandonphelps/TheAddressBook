@@ -117,13 +117,16 @@ namespace AddressBook
       {
         if (!b.isSaved)
         {
+          Console.WriteLine("Saving book with id: " + b.id);
           DManager.insertIntoTable("books", "(name, id)", "('" + b.name + "', '" + b.id + "')");
+          b.isSaved = true;
         }
         foreach(Contact c in b.getContacts())
         {
           if (!c.isSaved)
           {
             DManager.insertIntoTable("contacts", "(book, name, id)", "('" + b.id + "', '" + c.name + "', '" + c.id +"')");
+            c.isSaved = true;
           }
         }
       }

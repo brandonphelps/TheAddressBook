@@ -44,12 +44,13 @@
       this.Phone_Label = new System.Windows.Forms.Label();
       this.Address_Label = new System.Windows.Forms.Label();
       this.ContactName_label = new System.Windows.Forms.Label();
-      this.LastName_textBox = new MyTextBox("Last");
+      this.FirstName_textBox = new MyTextBox("First");
       this.MidName_textBox = new MyTextBox("Middle");
+      this.LastName_textBox = new MyTextBox("Last");
       this.Address_textBox = new MyTextBox("1234 N Sample St. Sample City, Sample 12345");
       this.Phone_textBox = new MyTextBox("(123) 456-7890");
       this.Email_textBox = new MyTextBox("sample@sample.com");
-      this.FirstName_textBox = new MyTextBox("First");
+
       this.AddContact_Button = new System.Windows.Forms.Button();
       this.Edit_Button = new System.Windows.Forms.Button();
       this.AddInfo_Button = new System.Windows.Forms.Button();
@@ -223,6 +224,7 @@
       this.LastName_textBox.Name = "LastName_textBox";
       this.LastName_textBox.Size = new System.Drawing.Size(67, 20);
       this.LastName_textBox.TabIndex = 2;
+      this.LastName_textBox.Text = "Last";
       // 
       // MidName_textBox
       // 
@@ -231,6 +233,7 @@
       this.MidName_textBox.Name = "MidName_textBox";
       this.MidName_textBox.Size = new System.Drawing.Size(67, 20);
       this.MidName_textBox.TabIndex = 1;
+      this.MidName_textBox.Text = "Middle";
       // 
       // Address_textBox
       // 
@@ -239,6 +242,7 @@
       this.Address_textBox.Name = "Address_textBox";
       this.Address_textBox.Size = new System.Drawing.Size(213, 20);
       this.Address_textBox.TabIndex = 3;
+      this.Address_textBox.Text = "1234 N Sample St. Sample City, Sample 12345";
       // 
       // Phone_textBox
       // 
@@ -247,6 +251,7 @@
       this.Phone_textBox.Name = "Phone_textBox";
       this.Phone_textBox.Size = new System.Drawing.Size(213, 20);
       this.Phone_textBox.TabIndex = 4;
+      this.Phone_textBox.Text = "(123) 456-7890";
       // 
       // Email_textBox
       // 
@@ -255,6 +260,7 @@
       this.Email_textBox.Name = "Email_textBox";
       this.Email_textBox.Size = new System.Drawing.Size(213, 20);
       this.Email_textBox.TabIndex = 5;
+      this.Email_textBox.Text = "sample@sample.com";
       // 
       // FirstName_textBox
       // 
@@ -266,9 +272,7 @@
       this.FirstName_textBox.Name = "FirstName_textBox";
       this.FirstName_textBox.Size = new System.Drawing.Size(67, 20);
       this.FirstName_textBox.TabIndex = 0;
-      //this.FirstName_textBox.Text = "First";
-      //this.FirstName_textBox.Enter += new System.EventHandler(this.FirstName_textBox_Enter);
-      //this.FirstName_textBox.Leave += new System.EventHandler(this.FirstName_textBox_Leave);
+      this.FirstName_textBox.Text = "First";
       // 
       // AddContact_Button
       // 

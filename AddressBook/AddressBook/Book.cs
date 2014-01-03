@@ -16,9 +16,11 @@ namespace AddressBook
       
       public Book(string name)
       {
+      
         contacts = new List<Contact>();
         this.name = name;
         id = next_id++;
+        Console.WriteLine("Creating book with id: " + id);
       }
       
       public Book(string name, int id)
@@ -30,6 +32,7 @@ namespace AddressBook
         {
           next_id = id+1;
         }
+	Console.WriteLine("Creating book with id: " + id);
       }
 
       public void addPerson(Contact c)
