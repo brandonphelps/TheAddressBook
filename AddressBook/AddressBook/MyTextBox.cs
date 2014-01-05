@@ -34,7 +34,7 @@ namespace AddressBook
     }
 
     private void LeaveLeave(object sender, EventArgs args)
-    {
+     {
       MyTextBox instance = (MyTextBox)sender;
       //Console.WriteLine(instance.id);
       if(this.Text == "")
@@ -67,8 +67,6 @@ namespace AddressBook
         case "Email_textBox":
           c.emailAddress = this.Text;
           break;
-        default:
-          return;
       }
       this.container.addModifyContact(c);
       this.container.refreshDataSources();

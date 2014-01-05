@@ -127,5 +127,31 @@ namespace AddressBook
     {
       return m_dbConnection;
     }
+
+    public string commafy(string mesg)
+    {
+      string msg = "'";
+      string[] temp = mesg.Split(' ');
+
+      for (int i = 0; i < temp.Count() - 1; i ++)
+      {
+        msg += temp[i] + "', '";
+      }
+      msg += temp[temp.Count() - 1] + "'";
+      Console.WriteLine(msg);
+      return msg;
+    }
+
+    public string commafy(params object[] list)
+    {
+      string msg = "";
+      for (int i = 0; i < list.Count() - 1; i++)
+      {
+        msg += list[i] + " ";
+      }
+      msg += list[list.Count() - 1];
+
+      return commafy(msg);
+    }
   }
 }

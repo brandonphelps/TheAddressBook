@@ -27,12 +27,11 @@ namespace AddressBook
       InitializeComponent();
 
       DManager = new DataManager("MyDatabase.sqlite");
-      DManager.createTable("contacts", "(book int, name varchar(20), id int)");
+      DManager.createTable("contacts", "(book int, id int, first varchar(20), middle varchar(20), last varchar(20))");
       DManager.createTable("books", "(name varchar(20), id int)");
       //DManager.insertIntoTable("contacts", "(book, name)", "('1', 'brad')");
       //DManager.insertIntoTable("contacts", "(book, name)", "('1', 'sean')");
       //DManager.insertIntoTable("contacts", "(book, name)", "('1', 'bradley')");
-     
       loadData();
     }
 
@@ -103,7 +102,7 @@ namespace AddressBook
           continue;
         }
 
-        Contact c = new Contact(b, (string)reader["name"], (int)reader["id"]);
+        Contact c = new Contact(b, (string)reader["first"], (int)reader["id"]);
         c.isSaved = true;
         b.addPerson(c);
       }
@@ -123,7 +122,7 @@ namespace AddressBook
       while(toModifyContacts.Count() > 0)
       {
         Contact c = toModifyContacts[0];
-        temp_msg = "book='" + c.assignedBook.id + "', name='" + c.firstName + "', id='" + c.id + "'";
+        temp_msg = "book='" + c.assignedBook.id + "', first='" + c.firstName + "', id='" + c.id + "'";
         DManager.updateAtTable("contacts", temp_msg, "id='" + c.id + "'");
         c.isSaved = true;
         toModifyContacts.Remove(c);
@@ -135,7 +134,6 @@ namespace AddressBook
       {
         if (!b.isSaved)
         {
-          Console.WriteLine("Saving book with id: " + b.id);
           DManager.insertIntoTable("books", "(name, id)", "('" + b.name + "', '" + b.id + "')");
           b.isSaved = true;
         }
@@ -143,7 +141,9 @@ namespace AddressBook
         {
           if (!c.isSaved)
           {
-            DManager.insertIntoTable("contacts", "(book, name, id)", "('" + b.id + "', '" + c.firstName + "', '" + c.id +"')");
+            string ms = DManager.commafy(b.id, c.id, c.firstName, c.middleName, c.lastName);
+            Console.WriteLine("(" + ms + ")");
+            DManager.insertIntoTable("contacts", "(book, id, first, middle, last)", "(" + ms + ")");
             c.isSaved = true;
           }
         }
@@ -175,11 +175,11 @@ namespace AddressBook
 
     public void refreshDataSources()
     {
-      Book b = (Book)Books_ListBox.SelectedItem;
       Books_ListBox.DataSource = null;
       Books_ListBox.DataSource = books;
-      Contacts_ListBox.DataSource = null;
-      Contacts_ListBox.DataSource = b.getContacts();
+      // would change/update contacts_listbox.datasources, but that is done
+      // when books_list selected index is changed, and that occurs
+      // when datasource is changed
     }
     
     private void AddBook_Button_Click(object sender, EventArgs e)
@@ -240,13 +240,13 @@ namespace AddressBook
       {
         return;
       }
+      Contacts_ListBox.DataSource = null;
       Contacts_ListBox.DataSource = b.getContacts();
     }
 
     public void addModifyContact(Contact c)
     {
       c.isSaved = false;
-      c.assignedBook.isSaved = false;
       toModifyContacts.Add(c);
     }
 
