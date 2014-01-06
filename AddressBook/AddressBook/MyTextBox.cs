@@ -8,20 +8,22 @@ using System.Collections;
 
 namespace AddressBook
 {
-  class MyTextBox : System.Windows.Forms.TextBox
+
+  class MyTextBox : TextBox
   {
-    private string defaultString {get; set; }
-    private Home container;
+    private string defaultString { get; set; }
+    private Home container { get; set; }
     private int id;
     private static int next_id = 0;
-    public MyTextBox(Home parent, string defaultValue) : base()
+
+    public MyTextBox() : base()
     {
-      this.container = parent;
-      this.defaultString = defaultValue;
-      this.Text = this.defaultString;
+      id = next_id++;
+      defaultString = "First";
+      this.Text = defaultString;
+      Console.WriteLine("Creating my textbox with id: " + id);
       this.Enter += new System.EventHandler(this.EnterEnter);
       this.Leave += new System.EventHandler(this.LeaveLeave);
-      this.id = next_id++;
     }
 
     private void EnterEnter(object sender, EventArgs args)
@@ -42,6 +44,11 @@ namespace AddressBook
         this.ForeColor = System.Drawing.Color.DimGray;
         this.Text = defaultString;
       }
+      if(this.container == null)
+      {
+        return;
+      }
+
       Contact c = this.container.getSelectedContact();
       if(c == null)
       {
@@ -68,9 +75,10 @@ namespace AddressBook
           c.emailAddress = this.Text;
           break;
       }
-      this.container.addModifyContact(c);
-      this.container.refreshDataSources();
-      this.container.update(true);
+     // this.container.addModifyContact(c);
+      ///this.container.refreshDataSources();
+    //  this.container.update(true);
     }
+    
   }
 }

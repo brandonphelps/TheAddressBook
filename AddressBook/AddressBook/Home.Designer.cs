@@ -44,18 +44,17 @@
       this.Phone_Label = new System.Windows.Forms.Label();
       this.Address_Label = new System.Windows.Forms.Label();
       this.ContactName_label = new System.Windows.Forms.Label();
-      this.FirstName_textBox = new MyTextBox(this, "First");
-      this.MidName_textBox = new MyTextBox(this, "Middle");
-      this.LastName_textBox = new MyTextBox(this, "Last");
-      this.Address_textBox = new MyTextBox(this, "1234 N Sample St. Sample City, Sample 12345");
-      this.Phone_textBox = new MyTextBox(this, "(123) 456-7890");
-      this.Email_textBox = new MyTextBox(this, "sample@sample.com");
-
       this.AddContact_Button = new System.Windows.Forms.Button();
       this.Edit_Button = new System.Windows.Forms.Button();
       this.AddInfo_Button = new System.Windows.Forms.Button();
       this.BookDelete_button = new System.Windows.Forms.Button();
       this.ContactDelete_button = new System.Windows.Forms.Button();
+      this.myTextBox1 = new AddressBook.MyTextBox();
+      this.myTextBox2 = new AddressBook.MyTextBox();
+      this.myTextBox3 = new AddressBook.MyTextBox();
+      this.myTextBox4 = new AddressBook.MyTextBox();
+      this.myTextBox5 = new AddressBook.MyTextBox();
+      this.myTextBox6 = new AddressBook.MyTextBox();
       this.menuStrip1.SuspendLayout();
       this.ContactInfo_Panel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ContactPicture_pictureBox)).BeginInit();
@@ -67,7 +66,7 @@
             this.fileToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(613, 24);
+      this.menuStrip1.Size = new System.Drawing.Size(615, 24);
       this.menuStrip1.TabIndex = 0;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -137,6 +136,12 @@
       // 
       this.ContactInfo_Panel.BackColor = System.Drawing.SystemColors.ControlDark;
       this.ContactInfo_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.ContactInfo_Panel.Controls.Add(this.myTextBox6);
+      this.ContactInfo_Panel.Controls.Add(this.myTextBox5);
+      this.ContactInfo_Panel.Controls.Add(this.myTextBox4);
+      this.ContactInfo_Panel.Controls.Add(this.myTextBox3);
+      this.ContactInfo_Panel.Controls.Add(this.myTextBox2);
+      this.ContactInfo_Panel.Controls.Add(this.myTextBox1);
       this.ContactInfo_Panel.Controls.Add(this.dateTimePicker1);
       this.ContactInfo_Panel.Controls.Add(this.ContactPicture_pictureBox);
       this.ContactInfo_Panel.Controls.Add(this.BDay_Label);
@@ -144,16 +149,10 @@
       this.ContactInfo_Panel.Controls.Add(this.Phone_Label);
       this.ContactInfo_Panel.Controls.Add(this.Address_Label);
       this.ContactInfo_Panel.Controls.Add(this.ContactName_label);
-      this.ContactInfo_Panel.Controls.Add(this.LastName_textBox);
-      this.ContactInfo_Panel.Controls.Add(this.MidName_textBox);
-      this.ContactInfo_Panel.Controls.Add(this.Address_textBox);
-      this.ContactInfo_Panel.Controls.Add(this.Phone_textBox);
-      this.ContactInfo_Panel.Controls.Add(this.Email_textBox);
-      this.ContactInfo_Panel.Controls.Add(this.FirstName_textBox);
       this.ContactInfo_Panel.Location = new System.Drawing.Point(264, 27);
       this.ContactInfo_Panel.Name = "ContactInfo_Panel";
       this.ContactInfo_Panel.Size = new System.Drawing.Size(337, 379);
-      this.ContactInfo_Panel.TabIndex = 4;
+      this.ContactInfo_Panel.TabIndex = 10;
       // 
       // dateTimePicker1
       // 
@@ -166,7 +165,7 @@
       // 
       this.ContactPicture_pictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
       this.ContactPicture_pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.ContactPicture_pictureBox.Location = new System.Drawing.Point(100, 17);
+      this.ContactPicture_pictureBox.Location = new System.Drawing.Point(100, 24);
       this.ContactPicture_pictureBox.Name = "ContactPicture_pictureBox";
       this.ContactPicture_pictureBox.Size = new System.Drawing.Size(164, 135);
       this.ContactPicture_pictureBox.TabIndex = 0;
@@ -216,63 +215,6 @@
       this.ContactName_label.Size = new System.Drawing.Size(38, 13);
       this.ContactName_label.TabIndex = 7;
       this.ContactName_label.Text = "Name:";
-      // 
-      // LastName_textBox
-      // 
-      this.LastName_textBox.ForeColor = System.Drawing.Color.DimGray;
-      this.LastName_textBox.Location = new System.Drawing.Point(246, 191);
-      this.LastName_textBox.Name = "LastName_textBox";
-      this.LastName_textBox.Size = new System.Drawing.Size(67, 20);
-      this.LastName_textBox.TabIndex = 2;
-      this.LastName_textBox.Text = "Last";
-      // 
-      // MidName_textBox
-      // 
-      this.MidName_textBox.ForeColor = System.Drawing.Color.DimGray;
-      this.MidName_textBox.Location = new System.Drawing.Point(173, 191);
-      this.MidName_textBox.Name = "MidName_textBox";
-      this.MidName_textBox.Size = new System.Drawing.Size(67, 20);
-      this.MidName_textBox.TabIndex = 1;
-      this.MidName_textBox.Text = "Middle";
-      // 
-      // Address_textBox
-      // 
-      this.Address_textBox.ForeColor = System.Drawing.Color.DimGray;
-      this.Address_textBox.Location = new System.Drawing.Point(100, 217);
-      this.Address_textBox.Name = "Address_textBox";
-      this.Address_textBox.Size = new System.Drawing.Size(213, 20);
-      this.Address_textBox.TabIndex = 3;
-      this.Address_textBox.Text = "1234 N Sample St. Sample City, Sample 12345";
-      // 
-      // Phone_textBox
-      // 
-      this.Phone_textBox.ForeColor = System.Drawing.Color.DimGray;
-      this.Phone_textBox.Location = new System.Drawing.Point(100, 243);
-      this.Phone_textBox.Name = "Phone_textBox";
-      this.Phone_textBox.Size = new System.Drawing.Size(213, 20);
-      this.Phone_textBox.TabIndex = 4;
-      this.Phone_textBox.Text = "(123) 456-7890";
-      // 
-      // Email_textBox
-      // 
-      this.Email_textBox.ForeColor = System.Drawing.Color.DimGray;
-      this.Email_textBox.Location = new System.Drawing.Point(100, 269);
-      this.Email_textBox.Name = "Email_textBox";
-      this.Email_textBox.Size = new System.Drawing.Size(213, 20);
-      this.Email_textBox.TabIndex = 5;
-      this.Email_textBox.Text = "sample@sample.com";
-      // 
-      // FirstName_textBox
-      // 
-      this.FirstName_textBox.BackColor = System.Drawing.Color.White;
-      this.FirstName_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.FirstName_textBox.ForeColor = System.Drawing.Color.DimGray;
-      this.FirstName_textBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-      this.FirstName_textBox.Location = new System.Drawing.Point(100, 191);
-      this.FirstName_textBox.Name = "FirstName_textBox";
-      this.FirstName_textBox.Size = new System.Drawing.Size(67, 20);
-      this.FirstName_textBox.TabIndex = 0;
-      this.FirstName_textBox.Text = "First";
       // 
       // AddContact_Button
       // 
@@ -324,11 +266,54 @@
       this.ContactDelete_button.UseVisualStyleBackColor = true;
       this.ContactDelete_button.Click += new System.EventHandler(this.ContactDelete_button_Click);
       // 
+      // myTextBox1
+      // 
+      this.myTextBox1.Location = new System.Drawing.Point(58, 191);
+      this.myTextBox1.Name = "myTextBox1";
+      this.myTextBox1.Size = new System.Drawing.Size(57, 20);
+      this.myTextBox1.TabIndex = 12;
+      this.myTextBox1.Text = "First";
+      // 
+      // myTextBox2
+      // 
+      this.myTextBox2.Location = new System.Drawing.Point(121, 191);
+      this.myTextBox2.Name = "myTextBox2";
+      this.myTextBox2.Size = new System.Drawing.Size(100, 20);
+      this.myTextBox2.TabIndex = 13;
+      // 
+      // myTextBox3
+      // 
+      this.myTextBox3.Location = new System.Drawing.Point(227, 191);
+      this.myTextBox3.Name = "myTextBox3";
+      this.myTextBox3.Size = new System.Drawing.Size(100, 20);
+      this.myTextBox3.TabIndex = 14;
+      // 
+      // myTextBox4
+      // 
+      this.myTextBox4.Location = new System.Drawing.Point(58, 218);
+      this.myTextBox4.Name = "myTextBox4";
+      this.myTextBox4.Size = new System.Drawing.Size(269, 20);
+      this.myTextBox4.TabIndex = 15;
+      // 
+      // myTextBox5
+      // 
+      this.myTextBox5.Location = new System.Drawing.Point(61, 245);
+      this.myTextBox5.Name = "myTextBox5";
+      this.myTextBox5.Size = new System.Drawing.Size(266, 20);
+      this.myTextBox5.TabIndex = 16;
+      // 
+      // myTextBox6
+      // 
+      this.myTextBox6.Location = new System.Drawing.Point(55, 269);
+      this.myTextBox6.Name = "myTextBox6";
+      this.myTextBox6.Size = new System.Drawing.Size(272, 20);
+      this.myTextBox6.TabIndex = 17;
+      // 
       // Home
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(613, 444);
+      this.ClientSize = new System.Drawing.Size(615, 444);
       this.Controls.Add(this.ContactDelete_button);
       this.Controls.Add(this.BookDelete_button);
       this.Controls.Add(this.AddInfo_Button);
@@ -371,17 +356,23 @@
     private System.Windows.Forms.Label Phone_Label;
     private System.Windows.Forms.Label Address_Label;
     private System.Windows.Forms.Label ContactName_label;
-    private MyTextBox LastName_textBox;
-    private MyTextBox MidName_textBox;
-    private MyTextBox Address_textBox;
-    private MyTextBox Phone_textBox;
-    private MyTextBox Email_textBox;
-    private MyTextBox FirstName_textBox;
     private System.Windows.Forms.Button AddInfo_Button;
     private System.Windows.Forms.Button BookDelete_button;
     private System.Windows.Forms.Button ContactDelete_button;
     private System.Windows.Forms.DateTimePicker dateTimePicker1;
     private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+    private MyTextBox myTextBox1;
+    private MyTextBox myTextBox6;
+    private MyTextBox myTextBox5;
+    private MyTextBox myTextBox4;
+    private MyTextBox myTextBox3;
+    private MyTextBox myTextBox2;
+  
+    private void InitializeTextBoxes()
+    {
+
+    }
+
   }
 }
 

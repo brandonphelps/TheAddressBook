@@ -25,7 +25,7 @@ namespace AddressBook
     public Home() 
     {
       InitializeComponent();
-
+      InitializeTextBoxes();
       DManager = new DataManager("MyDatabase.sqlite");
       DManager.createTable("contacts", "(book int, id int, first varchar(20), middle varchar(20), last varchar(20))");
       DManager.createTable("books", "(name varchar(20), id int)");
@@ -218,9 +218,9 @@ namespace AddressBook
       {
         return;
       }
-      FirstName_textBox.Text = c.firstName;
-      MidName_textBox.Text = c.middleName;
-      LastName_textBox.Text = c.lastName;
+      //FirstName_textBox.Text = c.firstName;
+      //MidName_textBox.Text = c.middleName;
+      //LastName_textBox.Text = c.lastName;
     }
 
     private void Edit_Button_Click(object sender, EventArgs e)
@@ -304,6 +304,11 @@ namespace AddressBook
     private void saveToolStripMenuItem_Click(object sender, EventArgs e)
     {
       saveData();
+    }
+
+    private void myTextBox1_TextChanged(object sender, EventArgs e)
+    {
+
     }
   }
 }

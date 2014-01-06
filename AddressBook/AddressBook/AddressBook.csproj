@@ -76,6 +76,9 @@
   <ItemGroup>
     <Compile Include="Book.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="CueTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataManager.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -100,6 +103,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
