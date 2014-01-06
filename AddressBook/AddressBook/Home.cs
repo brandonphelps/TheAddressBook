@@ -24,7 +24,12 @@ namespace AddressBook
     private Book selectedBook;
     private Contact selectedContact;
     private bool saved;
+
+    //Testing
+    private bool isSaved;
+    //
     CurrencyManager cm, bm;
+    
     public Home() 
     {
       InitializeComponent();
@@ -110,6 +115,7 @@ namespace AddressBook
         b.addPerson(c);
       }
       Books_ListBox.DataSource = books;
+      isSaved = true;
     }
 
     private void saveData()
@@ -174,6 +180,7 @@ namespace AddressBook
       }
 
       update(false);
+      isSaved = true;
     }
 
     public void refreshDataSources()
@@ -331,6 +338,36 @@ namespace AddressBook
     private void saveToolStripMenuItem_Click(object sender, EventArgs e)
     {
       saveData();
+    }
+
+    private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      WantToClose obj = new WantToClose();
+
+      /* 
+       */
+
+      if (!isSaved)
+      {
+        obj.ShowDialog();
+        if (obj.wantToSaveData())
+        {
+          saveData();
+          Close();
+        }
+        else if (obj.wanttoCancel())
+        {
+          return;
+        }
+        else
+        {
+          Close();
+        }
+      }
+      else
+      {
+        Close();
+      }
     }
   }
 }

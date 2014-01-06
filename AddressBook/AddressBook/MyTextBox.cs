@@ -35,6 +35,7 @@ namespace AddressBook
       }
       this.container = parent;
       this.defaultString = defaultString;
+      this.ForeColor = System.Drawing.Color.DimGray;
       this.Text = this.defaultString;
       hasInitalized = true;
     }
