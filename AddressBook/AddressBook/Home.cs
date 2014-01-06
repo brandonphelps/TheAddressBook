@@ -21,7 +21,10 @@ namespace AddressBook
     private List<Book> toDeleteBooks = new List<Book>();
     private List<Contact> toModifyContacts = new List<Contact>();
     private DataManager DManager;
+    private Book selectedBook;
+    private Contact selectedContact;
     private bool saved;
+    CurrencyManager cm, bm;
     public Home() 
     {
       InitializeComponent();
@@ -73,7 +76,7 @@ namespace AddressBook
 
     public Contact getSelectedContact()
     {
-      return (Contact)Contacts_ListBox.SelectedItem;
+      return selectedContact;
     }
 
     private void loadData()
@@ -175,11 +178,23 @@ namespace AddressBook
 
     public void refreshDataSources()
     {
-      Books_ListBox.DataSource = null;
-      Books_ListBox.DataSource = books;
+      //bm.Refresh();
+      //cm = (CurrencyManager)BindingContext[selectedBook.getContacts()];
+      //Contacts_ListBox.DataSource = selectedBook.getContacts();
+      //cm.Refresh();
+      //Books_ListBox.DataSource = null;
+      //Books_ListBox.DataSource = books;
       // would change/update contacts_listbox.datasources, but that is done
       // when books_list selected index is changed, and that occurs
       // when datasource is changed
+      //Contacts_ListBox.DataSource = null;
+      //Contacts_ListBox.DataSource = selectedBook.getContacts();
+    }
+
+    public void refreshContacts()
+    {
+      cm = (CurrencyManager)BindingContext[selectedBook.getContacts()];
+      cm.Refresh();
     }
     
     private void AddBook_Button_Click(object sender, EventArgs e)
@@ -194,33 +209,23 @@ namespace AddressBook
     }
 
     private void AddContact_Button_Click(object sender, EventArgs e)
-    {
-      Book b = (Book)Books_ListBox.SelectedItem; 
-      if(b == null)
-      {
-        return;
-      }
-      Contact c = new Contact(b);
-      b.addPerson(c);
+    { 
+      Contact c = new Contact(selectedBook);
+      selectedBook.addPerson(c);
       Contacts_ListBox.DataSource = null;
-      Contacts_ListBox.DataSource = b.getContacts();
-      Contacts_ListBox.SelectedIndex = b.getContacts().Count - 1;
-      b.isSaved = false;
+      Contacts_ListBox.DataSource = selectedBook.getContacts();
+      Contacts_ListBox.SelectedIndex = selectedBook.getContacts().Count - 1;
+      selectedBook.isSaved = false;
       c.isSaved = false;
 
       update(true);
     }
 
-    private void displayContactInfo(object sender, EventArgs e)
+    private void displayContactInfo()
     {
-      Contact c = (Contact)Contacts_ListBox.SelectedItem;
-      if(c == null)
-      {
-        return;
-      }
-      //FirstName_textBox.Text = c.firstName;
-      //MidName_textBox.Text = c.middleName;
-      //LastName_textBox.Text = c.lastName;
+      FirstName_TextBox.Text = selectedContact.firstName;
+      MidName_TextBox.Text = selectedContact.middleName;
+      LastName_TextBox.Text = selectedContact.lastName;
     }
 
     private void Edit_Button_Click(object sender, EventArgs e)
@@ -240,8 +245,29 @@ namespace AddressBook
       {
         return;
       }
-      Contacts_ListBox.DataSource = null;
+      selectedBook = b;
+      if(b.getContacts().Count() == 0)
+      {
+        selectedContact = null;
+      }
+      else
+      {
+        selectedContact = b.getContacts()[0];
+        Contacts_ListBox.SelectedItem = selectedContact;
+      }
+      Books_ListBox.SelectedItem = b;
       Contacts_ListBox.DataSource = b.getContacts();
+    }
+
+    private void ContactInfo_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      Contact c = (Contact)Contacts_ListBox.SelectedItem;
+      if (c == null)
+      {
+        return;
+      }
+      selectedContact = c;
+      displayContactInfo();
     }
 
     public void addModifyContact(Contact c)
@@ -304,11 +330,6 @@ namespace AddressBook
     private void saveToolStripMenuItem_Click(object sender, EventArgs e)
     {
       saveData();
-    }
-
-    private void myTextBox1_TextChanged(object sender, EventArgs e)
-    {
-
     }
   }
 }

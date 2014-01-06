@@ -49,12 +49,12 @@
       this.AddInfo_Button = new System.Windows.Forms.Button();
       this.BookDelete_button = new System.Windows.Forms.Button();
       this.ContactDelete_button = new System.Windows.Forms.Button();
-      this.FirstName_TextBox = new AddressBook.MyTextBox();
-      this.Email_TextBox = new AddressBook.MyTextBox();
-      this.Phone_TextBox = new AddressBook.MyTextBox();
-      this.Address_TextBox = new AddressBook.MyTextBox();
-      this.LastName_TextBox = new AddressBook.MyTextBox();
       this.MidName_TextBox = new AddressBook.MyTextBox();
+      this.LastName_TextBox = new AddressBook.MyTextBox();
+      this.Address_TextBox = new AddressBook.MyTextBox();
+      this.Phone_TextBox = new AddressBook.MyTextBox();
+      this.Email_TextBox = new AddressBook.MyTextBox();
+      this.FirstName_TextBox = new AddressBook.MyTextBox();
       this.menuStrip1.SuspendLayout();
       this.ContactInfo_Panel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ContactPicture_pictureBox)).BeginInit();
@@ -130,7 +130,7 @@
       this.Contacts_ListBox.Name = "Contacts_ListBox";
       this.Contacts_ListBox.Size = new System.Drawing.Size(120, 379);
       this.Contacts_ListBox.TabIndex = 3;
-      this.Contacts_ListBox.SelectedIndexChanged += new System.EventHandler(this.displayContactInfo);
+      this.Contacts_ListBox.SelectedIndexChanged += new System.EventHandler(this.ContactInfo_SelectedIndexChanged);
       // 
       // ContactInfo_Panel
       // 
@@ -266,48 +266,53 @@
       this.ContactDelete_button.UseVisualStyleBackColor = true;
       this.ContactDelete_button.Click += new System.EventHandler(this.ContactDelete_button_Click);
       // 
-      // myTextBox1
+      // MidName_TextBox
+      // 
+      this.MidName_TextBox.Location = new System.Drawing.Point(55, 269);
+      this.MidName_TextBox.Name = "MidName_TextBox";
+      this.MidName_TextBox.Size = new System.Drawing.Size(272, 20);
+      this.MidName_TextBox.TabIndex = 17;
+      this.MidName_TextBox.Text = "First";
+      // 
+      // LastName_TextBox
+      // 
+      this.LastName_TextBox.Location = new System.Drawing.Point(61, 245);
+      this.LastName_TextBox.Name = "LastName_TextBox";
+      this.LastName_TextBox.Size = new System.Drawing.Size(266, 20);
+      this.LastName_TextBox.TabIndex = 16;
+      this.LastName_TextBox.Text = "First";
+      // 
+      // Address_TextBox
+      // 
+      this.Address_TextBox.Location = new System.Drawing.Point(58, 218);
+      this.Address_TextBox.Name = "Address_TextBox";
+      this.Address_TextBox.Size = new System.Drawing.Size(269, 20);
+      this.Address_TextBox.TabIndex = 15;
+      this.Address_TextBox.Text = "First";
+      // 
+      // Phone_TextBox
+      // 
+      this.Phone_TextBox.Location = new System.Drawing.Point(227, 191);
+      this.Phone_TextBox.Name = "Phone_TextBox";
+      this.Phone_TextBox.Size = new System.Drawing.Size(100, 20);
+      this.Phone_TextBox.TabIndex = 14;
+      this.Phone_TextBox.Text = "First";
+      // 
+      // Email_TextBox
+      // 
+      this.Email_TextBox.Location = new System.Drawing.Point(121, 191);
+      this.Email_TextBox.Name = "Email_TextBox";
+      this.Email_TextBox.Size = new System.Drawing.Size(100, 20);
+      this.Email_TextBox.TabIndex = 13;
+      this.Email_TextBox.Text = "First";
+      // 
+      // FirstName_TextBox
       // 
       this.FirstName_TextBox.Location = new System.Drawing.Point(58, 191);
-      this.FirstName_TextBox.Name = "myTextBox1";
+      this.FirstName_TextBox.Name = "FirstName_TextBox";
       this.FirstName_TextBox.Size = new System.Drawing.Size(57, 20);
       this.FirstName_TextBox.TabIndex = 12;
       this.FirstName_TextBox.Text = "First";
-      // 
-      // myTextBox2
-      // 
-      this.Email_TextBox.Location = new System.Drawing.Point(121, 191);
-      this.Email_TextBox.Name = "myTextBox2";
-      this.Email_TextBox.Size = new System.Drawing.Size(100, 20);
-      this.Email_TextBox.TabIndex = 13;
-      // 
-      // myTextBox3
-      // 
-      this.Phone_TextBox.Location = new System.Drawing.Point(227, 191);
-      this.Phone_TextBox.Name = "myTextBox3";
-      this.Phone_TextBox.Size = new System.Drawing.Size(100, 20);
-      this.Phone_TextBox.TabIndex = 14;
-      // 
-      // myTextBox4
-      // 
-      this.Address_TextBox.Location = new System.Drawing.Point(58, 218);
-      this.Address_TextBox.Name = "myTextBox4";
-      this.Address_TextBox.Size = new System.Drawing.Size(269, 20);
-      this.Address_TextBox.TabIndex = 15;
-      // 
-      // myTextBox5
-      // 
-      this.LastName_TextBox.Location = new System.Drawing.Point(61, 245);
-      this.LastName_TextBox.Name = "myTextBox5";
-      this.LastName_TextBox.Size = new System.Drawing.Size(266, 20);
-      this.LastName_TextBox.TabIndex = 16;
-      // 
-      // myTextBox6
-      // 
-      this.MidName_TextBox.Location = new System.Drawing.Point(55, 269);
-      this.MidName_TextBox.Name = "myTextBox6";
-      this.MidName_TextBox.Size = new System.Drawing.Size(272, 20);
-      this.MidName_TextBox.TabIndex = 17;
       // 
       // Home
       // 
@@ -370,7 +375,12 @@
   
     private void InitializeTextBoxes()
     {
-
+      FirstName_TextBox.init(this, "First");
+      MidName_TextBox.init(this, "Middle");
+      LastName_TextBox.init(this, "Last");
+      Address_TextBox.init(this, "Address");
+      Phone_TextBox.init(this, "Phone");
+      Email_TextBox.init(this, "sample@sample.com");
     }
   }
 }
