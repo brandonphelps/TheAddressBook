@@ -37,6 +37,12 @@
       this.AddBook_Button = new System.Windows.Forms.Button();
       this.Contacts_ListBox = new System.Windows.Forms.ListBox();
       this.ContactInfo_Panel = new System.Windows.Forms.Panel();
+      this.MidName_TextBox = new AddressBook.MyTextBox();
+      this.LastName_TextBox = new AddressBook.MyTextBox();
+      this.Address_TextBox = new AddressBook.MyTextBox();
+      this.Phone_TextBox = new AddressBook.MyTextBox();
+      this.Email_TextBox = new AddressBook.MyTextBox();
+      this.FirstName_TextBox = new AddressBook.MyTextBox();
       this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
       this.ContactPicture_pictureBox = new System.Windows.Forms.PictureBox();
       this.BDay_Label = new System.Windows.Forms.Label();
@@ -55,6 +61,7 @@
       this.Phone_TextBox = new AddressBook.MyTextBox();
       this.Email_TextBox = new AddressBook.MyTextBox();
       this.FirstName_TextBox = new AddressBook.MyTextBox();
+      this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menuStrip1.SuspendLayout();
       this.ContactInfo_Panel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ContactPicture_pictureBox)).BeginInit();
@@ -74,7 +81,8 @@
       // 
       this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
-            this.saveToolStripMenuItem});
+            this.saveToolStripMenuItem,
+            this.closeToolStripMenuItem});
       this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
       this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
       this.fileToolStripMenuItem.Text = "File";
@@ -84,19 +92,19 @@
       this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.personToolStripMenuItem});
       this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-      this.newToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+      this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.newToolStripMenuItem.Text = "New";
       // 
       // personToolStripMenuItem
       // 
       this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-      this.personToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+      this.personToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.personToolStripMenuItem.Text = "Person";
       // 
       // saveToolStripMenuItem
       // 
       this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-      this.saveToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+      this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.saveToolStripMenuItem.Text = "Save";
       this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
       // 
@@ -153,6 +161,54 @@
       this.ContactInfo_Panel.Name = "ContactInfo_Panel";
       this.ContactInfo_Panel.Size = new System.Drawing.Size(337, 379);
       this.ContactInfo_Panel.TabIndex = 10;
+      // 
+      // MidName_TextBox
+      // 
+      this.MidName_TextBox.Location = new System.Drawing.Point(55, 269);
+      this.MidName_TextBox.Name = "MidName_TextBox";
+      this.MidName_TextBox.Size = new System.Drawing.Size(272, 20);
+      this.MidName_TextBox.TabIndex = 17;
+      this.MidName_TextBox.Text = "First";
+      // 
+      // LastName_TextBox
+      // 
+      this.LastName_TextBox.Location = new System.Drawing.Point(61, 245);
+      this.LastName_TextBox.Name = "LastName_TextBox";
+      this.LastName_TextBox.Size = new System.Drawing.Size(266, 20);
+      this.LastName_TextBox.TabIndex = 16;
+      this.LastName_TextBox.Text = "First";
+      // 
+      // Address_TextBox
+      // 
+      this.Address_TextBox.Location = new System.Drawing.Point(58, 218);
+      this.Address_TextBox.Name = "Address_TextBox";
+      this.Address_TextBox.Size = new System.Drawing.Size(269, 20);
+      this.Address_TextBox.TabIndex = 15;
+      this.Address_TextBox.Text = "First";
+      // 
+      // Phone_TextBox
+      // 
+      this.Phone_TextBox.Location = new System.Drawing.Point(227, 191);
+      this.Phone_TextBox.Name = "Phone_TextBox";
+      this.Phone_TextBox.Size = new System.Drawing.Size(100, 20);
+      this.Phone_TextBox.TabIndex = 14;
+      this.Phone_TextBox.Text = "First";
+      // 
+      // Email_TextBox
+      // 
+      this.Email_TextBox.Location = new System.Drawing.Point(121, 191);
+      this.Email_TextBox.Name = "Email_TextBox";
+      this.Email_TextBox.Size = new System.Drawing.Size(100, 20);
+      this.Email_TextBox.TabIndex = 13;
+      this.Email_TextBox.Text = "First";
+      // 
+      // FirstName_TextBox
+      // 
+      this.FirstName_TextBox.Location = new System.Drawing.Point(58, 191);
+      this.FirstName_TextBox.Name = "FirstName_TextBox";
+      this.FirstName_TextBox.Size = new System.Drawing.Size(57, 20);
+      this.FirstName_TextBox.TabIndex = 12;
+      this.FirstName_TextBox.Text = "First";
       // 
       // dateTimePicker1
       // 
@@ -265,7 +321,7 @@
       this.ContactDelete_button.Text = "Delete";
       this.ContactDelete_button.UseVisualStyleBackColor = true;
       this.ContactDelete_button.Click += new System.EventHandler(this.ContactDelete_button_Click);
-      // 
+      //
       // MidName_TextBox
       // 
       this.MidName_TextBox.Location = new System.Drawing.Point(55, 269);
@@ -313,6 +369,12 @@
       this.FirstName_TextBox.Size = new System.Drawing.Size(57, 20);
       this.FirstName_TextBox.TabIndex = 12;
       this.FirstName_TextBox.Text = "First";
+      // closeToolStripMenuItem
+      // 
+      this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+      this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.closeToolStripMenuItem.Text = "Close";
+      this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
       // 
       // Home
       // 
@@ -341,6 +403,11 @@
       this.ResumeLayout(false);
       this.PerformLayout();
 
+    }
+
+    private void closeToolStripMenuItem_Click(object sender, System.EventArgs e)
+    {
+      throw new System.NotImplementedException();
     }
 
     #endregion
@@ -382,6 +449,8 @@
       Phone_TextBox.init(this, "Phone");
       Email_TextBox.init(this, "sample@sample.com");
     }
+
+    private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
   }
 }
 
