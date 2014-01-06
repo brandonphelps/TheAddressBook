@@ -16,5 +16,10 @@ namespace AddressBook
     {
       InitializeComponent();
     }
+
+    private void EditCancel_Button_Click(object sender, EventArgs e)
+    {
+      this.Close();
+    }
   }
 }

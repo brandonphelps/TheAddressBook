@@ -146,6 +146,7 @@
       this.EditCancel_Button.TabIndex = 7;
       this.EditCancel_Button.Text = "Cancel";
       this.EditCancel_Button.UseVisualStyleBackColor = true;
+      this.EditCancel_Button.Click += new System.EventHandler(this.EditCancel_Button_Click);
       // 
       // EditAccept_Button
       // 
