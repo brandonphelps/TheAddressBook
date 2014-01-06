@@ -225,7 +225,8 @@ namespace AddressBook
 
     private void Edit_Button_Click(object sender, EventArgs e)
     {
-
+      Edit editForm = new Edit();
+      editForm.ShowDialog();
     }
 
     private void AddInfo_Button_Click(object sender, EventArgs e)

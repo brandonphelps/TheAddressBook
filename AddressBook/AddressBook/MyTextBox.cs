@@ -24,6 +24,7 @@ namespace AddressBook
       Console.WriteLine("Creating my textbox with id: " + id);
       this.Enter += new System.EventHandler(this.EnterEnter);
       this.Leave += new System.EventHandler(this.LeaveLeave);
+
     }
 
     private void EnterEnter(object sender, EventArgs args)
